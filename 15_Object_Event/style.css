@@ -1,0 +1,85 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+/* #elem {
+   width: 1000px;
+   height: 1000px;
+} */
+/* .colorGreen {
+   background-color: #0c550f;
+   color: white;
+}
+.colorRed {
+   background-color: #c70909;
+   color: white;
+} */
+
+/* ul {
+	padding: 30px;
+	border: 1px solid red;
+}
+li {
+	list-style-type: none;
+	margin-bottom: 20px;
+	border: 1px dashed black;
+} */
+
+/* .colorBlue {
+   background-color: blue;
+   color: white;
+} */
+
+/* #elem1 {
+   width: 500px;
+   height: 500px;
+   background-color: rgb(8, 63, 8);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#elem2 {
+   width: 380px;
+   height: 380px;
+   background-color: rgb(231, 15, 202);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#elem3 {
+   width: 250px;
+   height: 250px;
+   background-color: rgb(16, 20, 214);
+} */
+
+   /* div {
+      padding: 20px;
+      border: 1px solid red;
+   }
+
+   p {
+      width: 200px;
+      height: 200px;
+      border: 1px solid green;
+   } */
+
+   /* div, ul, li {
+	padding: 20px;
+   }
+
+   div {
+      border: 1px solid red;
+   }
+   ul {
+      border: 1px solid orange;
+   }
+   li {
+      border: 1px solid green;
+   } */
+
+   /* #block:not(.active) {
+	   display: none;
+   } */

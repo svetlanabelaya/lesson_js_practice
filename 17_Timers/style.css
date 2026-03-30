@@ -1,0 +1,14 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+
+.colored {
+   color: red;
+}
+.colorgreen {
+   color: green;
+}

@@ -1,0 +1,16 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+.color-blue {
+   color: blue;
+}
+.red {
+   color: rgb(228, 19, 47);
+}
+.border-red {
+   border: 1px solid red;
+}

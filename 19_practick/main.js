@@ -1,0 +1,1256 @@
+
+/////////////////////Практтиика///////////////////////
+
+// const { createElement } = require("react");
+
+// const { createElement } = require("react");
+
+//////////Создание элементов из массива на JavaScript///////////////
+
+/*
+Пусть у нас есть некоторый массив:
+
+let arr = [1, 2, 3, 4, 5];
+Пусть также у нас есть некоторый элемент-родитель:
+
+<div id="parent"></div>
+Давайте добавим в наш родитель новые абзацы, текстом которых будут элементы нашего массива.
+
+Реализуем описанное:
+
+let parent = document.querySelector('#parent');
+
+let arr = [1, 2, 3, 4, 5];
+
+for (let elem of arr) {
+	let p = document.createElement('p');
+	p.textContent = elem;
+	
+	parent.appendChild(p);
+}
+*/
+// let parent = document.querySelector('#parent');
+// let arr = [1, 2, 3, 4, 5];
+
+// for(let elem of arr) {
+//    let p = document.createElement('p');
+//    p.textContent = elem;
+
+//    parent.appendChild(p);
+// }
+
+///Модифицируйте мой код так, чтобы по клику на абзац к его содержимому прибавлялась единица.
+
+// let parent = document.querySelector('#parent');
+// let arr = [1, 2, 3, 4, 5];
+
+// for(let elem of arr) {
+//   let p = document.createElement('p');
+//   p.textContent = elem + '1';
+
+//    parent.appendChild(p);
+// }
+
+
+///////////Практика на создание списков ul на JavaScript///////////
+
+
+/*
+Дан ul:
+
+<ul id="elem"></ul>
+Дан массив. Вставьте элементы этого массива в конец ul так, чтобы каждый элемент стоял в своем li.
+*/
+// let elem = document.querySelector('#elem');
+// let arr = ['one', 'two', 'thre', 'fo', 'five'];
+
+// for(let elemm of arr) {
+//   let li = document.createElement('li');
+//   li.textContent = elemm;
+
+//   elem.appendChild(li);
+// }
+
+//Модифицируйте предыдущую задачу так, чтобы по клику на любой из вставленных элементов на экран выводился текст этого элемента.
+
+// let elem = document.querySelector('#elem');
+// let arr = ['one', 'two', 'thre', 'fo', 'five'];
+
+// for(let elemm of arr) {
+//   let li = document.createElement('li');
+//   li.addEventListener('click', function() {
+//      li.textContent += li.textContent;
+//    });   
+
+//   li.textContent = elemm;
+//   elem.appendChild(li);
+// }
+
+
+/*
+Модифицируйте предыдущую задачу так, чтобы по клику на li ей в конец добавлялся '!'.
+
+
+*/
+
+// let elem = document.querySelector('#elem');
+// let arr = ['one', 'two', 'thre', 'fo', 'five'];
+
+// for(let elemm of arr) {
+//   let li = document.createElement('li');
+//   li.addEventListener('click', function() {
+//      li.textContent += '!';
+//    });   
+
+//   li.textContent = elemm;
+//   elem.appendChild(li);
+// }
+
+//Модифицируйте предыдущую задачу так, чтобы по повторное нажатие на li не приводило к добавлению второго '!'.
+
+// let elem = document.querySelector('#elem');
+// let arr = ['one', 'two', 'thre', 'fo', 'five'];
+
+// for(let elemm of arr) {
+//    let li = document.createElement('li');
+//    li.textContent = elemm;
+
+//   li.addEventListener('click', function() {
+//      this.textContent += '!';
+//    },  {once: true });   
+
+//   elem.appendChild(li);
+// }
+
+
+////////////////////практика////////////////////////////////////
+////////////////Создание HTML таблиц на JavaScript//////////////
+
+/*
+<table id="table"></table>
+Пусть у нас есть вот такая пустая HTML таблица:
+
+<table id="table"></table>
+Давайте заполним эту таблицу рядами и колонками. Вот пример того, что у нас должно получится:
+
+<table id="table">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+Для решения задачи нам нужно два вложенных цикла. Первый цикл будет создавать ряды таблицы, а второй - ячейки в каждом ряду:
+
+let table = document.querySelector('#table');
+
+for (let i = 0; i < 3; i++) {
+	let tr = document.createElement('tr');
+	
+	for (let i = 0; i < 3; i++) {
+		let td = document.createElement('td');
+		tr.appendChild(td);
+	}
+	
+	table.appendChild(tr);
+}
+*/
+
+/*
+Дана пустая HTML таблица. С помощью двух вложенных циклов for заполните эту таблицу 5-ю рядами с 5-ю колонками.
+
+<table id="table"></table>
+*/
+//получим ссылку на таблицу по айди
+// let table = document.querySelector('#table');
+// //Первый цикл будет создавать ряды таблицы, а второй - ячейки в каждом ряду:
+
+// for(let i = 0; i < 5; i++) {
+//    //создадим ряды строки
+//    let tr = document.createElement('tr');
+//    //создадим цикл для столбцов
+//    for(let i = 1; i < 5; i++) {
+//       let td = document.createElement('td');
+//       td.textContent = 'Hello!'
+//       //вставим в  наши созданные td в tr
+//       tr.appendChild(td);
+//    } 
+//    table.appendChild(tr);
+// }
+
+
+/*
+Модифицируйте предыдущую задачу так, чтобы таблица создавалась размером 10 рядов на 5 колонок.
+*/
+
+// for(let i = 0; i < 10; i++) {
+//    //создадим ряды строки
+//    let tr = document.createElement('tr');
+//    //создадим цикл для столбцов
+//    for(let i = 1; i < 5; i++) {
+//       let td = document.createElement('td');
+//       td.textContent = 'Hello!'
+//       //вставим в  наши созданные td в tr
+//       tr.appendChild(td);
+//    } 
+//    table.appendChild(tr);
+// }
+
+/*
+Модифицируйте предыдущую задачу так, чтобы в каждую td добавлялся текст 'x'.
+*/
+
+
+// for(let i = 0; i < 10; i++) {
+//    //создадим ряды строки
+//    let tr = document.createElement('tr');
+//    //создадим цикл для столбцов
+//    for(let i = 1; i < 5; i++) {
+//       let td = document.createElement('td');
+//       td.textContent = 'x';
+//       //вставим в  наши созданные td в tr
+//       tr.appendChild(td);
+//    } 
+//    table.appendChild(tr);
+// }
+
+/*
+Реализуйте генератор таблиц, ширина и высота таблиц задается в двух инпутах (например, таблица 5 на 10 ячеек).
+
+<input type="number" id="width">   
+<input type="number" id="height">   
+<table id="table"></table>
+*/
+// let width = document.querySelector('#width');
+// let height = document.querySelector('#height');
+// let table = document.querySelector('#table');
+
+
+// function createTable() {
+//   table.innerHTML = '';
+
+//    for(let i = 0; i < width.value; i++) {
+//       let tr = document.createElement('tr');
+      
+//       for(let j = 0; j < height.value; j++) {
+//          let td = document.createElement('td');
+//          td.textContent = 'x';
+
+//          tr.appendChild(td);
+//       }
+//       table.appendChild(tr);
+//    }
+// }
+
+// width.addEventListener('change', createTable);
+// height.addEventListener('change', createTable);
+
+
+
+
+///////////Последовательное заполнение HTML таблиц//////////////
+
+/*
+Выведите на экран HTML таблицу размером 5 рядов на 5 колонок так, чтобы в ее ячейках последовательно стояли числа от 1 до 25.
+*/
+// let table = document.querySelector('#table');
+
+// let m = 1;
+// for(let i = 0; i < 5; i++) {
+//    let tr = document.createElement('tr');
+//    for(let j = 0; j < 5; j++) {
+//       let td = document.createElement('td');
+      
+//       td.textContent = m;
+//       m++;
+
+//       tr.appendChild(td);
+
+//    }
+//    table.appendChild(tr);
+// }
+
+
+/*
+Модифицируйте предыдущую задачу так, чтобы в ячейках таблицы были записаны четные числа в промежутке от 2 до 50.
+*/
+
+// let table = document.querySelector('#table');
+
+// let k = 2;
+// for(let i = 0; i < 3; i++) {
+//    let tr = document.createElement('tr');
+//    for(let j = 0; j < 8; j++) {
+//       let td = document.createElement('td');
+//       // if(k % 2 === 0 && k >= 2 && k <= 48) {
+//       //    td.textContent = k;
+//       //    k+=2;
+//       // } else {
+//       //   td.innerHTML = k;
+//       //   k+=2;
+//       // }
+     
+//       tr.appendChild(td);
+//    }
+//    table.appendChild(tr);
+// }
+
+
+
+// let table = document.querySelector('#table');
+
+// let k = 2;
+// for(let i = 0; i < 3; i++) {
+//    let tr = document.createElement('tr');
+//    for(let j = 0; j < 8; j++) {
+//       let td = document.createElement('td');
+//       td.textContent = k; // Просто пишем число
+//       k += 2;             // И сразу готовим следующее
+//       tr.appendChild(td);
+//    }
+//      table.appendChild(tr);
+//    }
+
+
+
+
+////////Создание HTML таблицы из массива на JavaScript////////
+
+/*
+Дан массив:
+
+let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+Не подсматривая в теоретическую часть урока, выведите элементы приведенного массива в виде HTML таблицы table.
+*/
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+
+// let table = document.querySelector('#table');
+
+// for(let subArr of arr) {
+//    let tr = document.createElement('tr');
+//    for(let elem of subArr) {
+//       let td = document.createElement('td');
+//       td.textContent = elem;
+//       tr.appendChild(td);
+//    }
+//    table.appendChild(tr);
+// }
+
+//Модифицируйте предыдущую задачу так, чтобы в таблицу записывались не элементы, а квадраты этих элементов.
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+
+// let table = document.querySelector('#table');
+
+// for(let subArr of arr) {
+//    let tr = document.createElement('tr');
+//    for(let elem of subArr) {
+//       let td = document.createElement('td');
+//       td.textContent = elem ** 2;
+//       tr.appendChild(td);
+//    }
+//    table.appendChild(tr);
+// }
+
+
+///////////////Создание HTML таблицы из массива объектов/////////
+/*
+<table id="table"></table>
+*/
+// let users = [
+// 	{
+// 		name: 'name1',
+// 		surname: 'surname1',
+// 		patronymic: 'patronymic1'
+// 	},
+// 	{
+// 		name: 'name2',
+// 		surname: 'surname2',
+// 		patronymic: 'patronymic2'
+// 	},
+// 	{
+// 		name: 'name3',
+// 		surname: 'surname3',
+// 		patronymic: 'patronymic3'
+// 	},
+// ];
+
+// let table = document.getElementById('table');
+
+// for (let user of users) {
+// 	let tr = document.createElement('tr');
+	
+// 	let td1 = document.createElement('td');
+// 	td1.textContent = user.name;
+// 	tr.appendChild(td1);
+	
+// 	let td2 = document.createElement('td');
+// 	td2.textContent = user.surname;
+// 	tr.appendChild(td2);
+	
+// 	let td3 = document.createElement('td');
+// 	td3.textContent = user.patronymic;
+// 	tr.appendChild(td3);
+	
+// 	table.appendChild(tr);
+// }
+
+/*
+Дан следующий массив с работниками:
+
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
+Выведите элементы этого массива в виде HTML таблицы.
+*/
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// let table = document.querySelector('#table');
+
+// for(let employee of employees) {
+//    let tr =document.createElement('tr');
+
+//    let td1 = document.createElement('td');
+//    td1.textContent = employee.name;
+//    tr.appendChild(td1);
+
+//    let td2 = document.createElement('td');
+//    td2.textContent = employee.age;
+//    tr.appendChild(td2);
+
+//    let td3 = document.createElement('td');
+//    td3.textContent = employee.salary;
+//    tr.appendChild(td3);
+
+//    table.appendChild(tr);
+// }
+
+//Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с возрастом ее содержимое увеличивалось на 1.
+
+
+////Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с зарплатой ее содержимое увеличивалось на 10%.
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// let table = document.querySelector('#table');
+
+// for(let employee of employees) {
+//    let tr =document.createElement('tr');
+
+//    let td1 = document.createElement('td');
+//    td1.textContent = employee.name;
+//    tr.appendChild(td1);
+
+//    let td2 = document.createElement('td');
+  
+//    td2.textContent = employee.age;
+//    td2.addEventListener('click', function() {
+//      td2.textContent = (Number(employee.age)) + 1;
+//    });
+//    tr.appendChild(td2);
+
+//    let td3 = document.createElement('td');
+//    td3.textContent = employee.salary;
+//    td3.addEventListener('click', function() {
+//       let newSalary = (Number(employee.salary)) * 1.1;
+//       td3.textContent = newSalary.toFixed(2);
+//       employee.salary = newSalary;
+//    }); 
+//    tr.appendChild(td3);
+
+//    table.appendChild(tr);
+// }
+
+
+//////////////Добавление рядов и колонок в HTML таблицу//////////
+
+//Сделайте кнопку, по нажатию на которую в таблицу будет добавляться новый ряд.
+
+// let btn = document.querySelector('#btn');
+// let table = document.querySelector('#table');
+
+// btn.addEventListener('click', func);
+
+// function func() {
+//    let tr = document.createElement('tr');
+//    for(let i = 1; i <= 3; i++) {
+//       let td = document.createElement('td');
+//       td.textContent = 'yes';
+//       tr.appendChild(td);
+//    }
+//    table.appendChild(tr);
+// }
+
+/////////////Добавление колонок////////////////////////
+
+/*
+Дана таблица размером 2 на 2:
+
+<table id="table">
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+}
+Дана также кнопка. Сделайте так, чтобы по нажатию на кнопку таблица увеличивалась на один ряд и на одну колонку.
+*/
+
+// let btn = document.querySelector('#btn');
+// let table = document.querySelector('#table');
+// btn.addEventListener('click', func);
+
+// function func() {
+//    let tr = document.createElement('tr');
+//    for(let i = 0; i < 1; i++) {
+      
+//       let trs = document.querySelectorAll('#table tr');
+//       for (let tr of trs) {
+//          let td = document.createElement('td');
+//          tr.appendChild(td);
+//       }
+//          table.appendChild(tr);
+//       }
+// }
+
+
+
+
+
+///////////Изменение ячеек HTML таблицы на JavaScript/////////////
+
+
+// let tds = document.querySelectorAll('#table td');
+
+// for (let td of tds) {
+// 	td.textContent = '!';
+// }
+
+//Пусть дана некоторая HTML таблица с числами и кнопка. По нажатию на кнопку увеличьте число в каждой ячейки таблицы в два раза.
+// let btn = document.querySelector('#btn');
+// let tds = document.querySelectorAll('#table td');
+
+// btn.addEventListener('click', function() {
+//    for(let td of tds) {
+//       td.textContent = td.textContent ** 2;
+//    }
+// });
+
+
+/////////////Самоудаление новых элементов на JavaScript///////////
+
+// let parent = document.querySelector('#parent');
+
+// for (let i = 1; i <= 9; i++) {
+// 	let p = document.createElement('p');
+// 	p.textContent = i;
+	
+// 	p.addEventListener('click', function() {
+// 		this.remove();
+// 	});
+	
+// 	parent.appendChild(p);
+// }
+
+/*
+<ul id="parent">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+</ul>
+
+<input type="submit" id="button">
+
+
+Сделайте так, чтобы по клику на кнопку в список добавлялся новый элемент. Сделайте так, чтобы любая li удалялась по клику на нее. Речь идет как о тех li, которые уже есть в списке, так о новых, созданных после нажатия на кнопку. 
+*/
+
+// let button = document.querySelector('#button');
+// let parent = document.querySelector('#parent');
+
+// for(let i = 4; i <= 9; i++) { 
+//    let li = document.createElement('li');
+//    li.textContent = i;
+
+//    li.addEventListener('click', function() {
+//       this.remove();
+//    });
+
+//    parent.appendChild(li);
+// }
+
+
+//////Ссылка на удаление элемента на JavaScript/////////////////
+
+// let elem =document.querySelector('#elem');
+// let remove = document.querySelector('#remove');
+
+// remove.addEventListener('click', function(event) {
+//    //удаляем абзац с текстом
+//    elem.remove();
+//    //предотвратим переход по ссылке
+//    event.preventDefault();
+// });
+
+// let elem   = document.querySelector('#elem');
+// let remove = document.querySelector('#remove');
+
+// remove.addEventListener('click', function(event) {
+// 	elem.remove();
+// 	event.preventDefault(); // отменяем переход по ссылке
+// });
+
+
+/////////Создание ссылок для удаление элементов на JavaScript//
+
+ //Для начала давайте просто реализуем добавление ссылок:
+// let elems = document.querySelectorAll('#parent p');
+
+// for (let elem of elems) {
+// 	let remove = document.createElement('a');
+// 	remove.href = '';
+// 	remove.textContent = 'remove';
+	
+// 	elem.appendChild(remove);
+// }
+
+ //Давайте теперь сделаем так, чтобы по нажатию на ссылку, удалялся соответствующий ей абзац:
+
+// let elems = document.querySelectorAll('#parent p');
+
+// for (let elem of elems) {
+// 	let remove = document.createElement('a');
+// 	remove.href = '';
+// 	remove.textContent = 'remove';
+// 	elem.appendChild(remove);
+	
+// 	remove.addEventListener('click', function(event) {
+// 		elem.remove();
+// 		event.preventDefault();
+// 	});
+// }
+
+/*
+Дан тег ul. Добавьте в конец каждого тега li ссылку на удаления этого li из списка. 
+*/
+
+// let elems = document.querySelectorAll('#parent li');
+
+// for(let elem of elems) {
+//    let remove = document.createElement('a');
+//    remove.href = '';
+//    remove.textContent = 'удалить';
+
+//    elem.appendChild(remove);
+//    remove.addEventListener('click', function(event) {
+//       elem.remove();
+//       event.preventDefault();
+//    });
+// }
+
+/*
+Дана HTML таблица. Добавьте в нее еще одну колонку, в которой для каждого ряда таблицы будет стоять ссылка на удаление этого ряда. 
+
+*/
+// //получим массив сылок на tr-колонки
+// let trs = document.querySelectorAll('#parent tr');
+
+
+// //переберем массив колонок  и создадим колонку
+// for (let tr of trs) {
+//    let td = document.createElement('td');//сщздание рядов
+//    td.textContent = 'remove';
+//    //метод DOM API, который добавляет узел (элемент, текст и т.д.) в конец списка дочерних элементов указанного родительского элемента. 
+    
+//     //сщздадим ссылку 
+//    let remove = document.createElement('a');
+//    remove.href = '';
+//    remove.textContent = 'remove';
+//    tr.appendChild(td);
+
+//    tr.addEventListener('click', function(event) {
+//       tr.remove();
+//       event.preventDefault();
+//    });
+// }
+
+// let trs = document.querySelectorAll('#parent tr');
+
+// for (let tr of trs) {
+//   let td = document.createElement('td'); // Создаем ячейку
+//   let removeLink = document.createElement('a'); // Создаем ссылку
+  
+//   removeLink.href = '#';
+//   removeLink.textContent = 'remove';
+  
+//   // 1. Вкладываем ссылку в ячейку
+//   td.appendChild(removeLink); 
+  
+//   // 2. Вкладываем ячейку в строку
+//   tr.appendChild(td); 
+
+//   // 3. Вешаем событие именно на ссылку, а не на всю строку
+//   removeLink.addEventListener('click', function(event) {
+//     event.preventDefault(); // Чтобы страница не прыгала вверх из-за href="#"
+//     tr.remove(); // Удаляем родительскую строку
+//   });
+// }
+
+
+
+
+/////////////Редактирование отдельного элемента на JavaScript///////
+
+
+// let elem = document.querySelector('#elem');
+// let input = document.querySelector('#input');
+
+// input.value = elem.textContent; // записываем в инпут текст абзаца
+
+// input.addEventListener('blur', function() {
+// 	elem.textContent = this.value;
+// });
+
+/*
+Модифицируйте приведенный выше код так, чтобы текст абзаца менялся не по потери фокуса, а по мере ввода текста в инпут. 
+*/
+// let elem = document.querySelector('#elem');
+// let input = document.querySelector('#input');
+
+// input.value = elem.textContent; // записываем в инпут текст абзаца
+
+// input.addEventListener('input', function() {
+// 	elem.textContent = this.value;
+// });
+
+
+
+
+
+////////////////Появление инпута//////////////////////////
+
+/*
+ Давайте теперь сделаем так, чтобы инпута изначально не было на странице, а он появлялся по клику на абзац. To есть наш начальный HTML будет выглядеть так:
+<div id="parent">
+	<p id="elem">text</p>
+</div>
+
+*/
+
+
+//Для начала просто реализуем появление инпута, без редактирования:
+
+// let elem = document.querySelector('#elem');
+
+// elem.addEventListener('click', function() {
+// 	let input = document.createElement('input');
+// 	input.value = elem.textContent;
+	
+// 	elem.parentElement.appendChild(input);
+// });
+
+//А теперь давайте сделаем так, чтобы по потери фокуса в инпуте менялся текст абзаца: 
+
+
+// let elem = document.querySelector('#elem');
+
+// elem.addEventListener('click', function() {
+// 	let input = document.createElement('input');
+// 	input.value = elem.textContent;
+	
+// 	input.addEventListener('blur', function() {
+// 		elem.textContent = this.value;
+// 	});
+	
+// 	elem.parentElement.appendChild(input);
+// });
+
+// Наш код, однако, несовершенен, так как каждое нажатие на абзац будет приводить к появлению нового инпута.
+
+//Для решения проблемы просто будем по потери фокуса удалять текущий инпут: 
+
+// let elem = document.querySelector('#elem');
+
+// elem.addEventListener('click', function() {
+// 	let input = document.createElement('input');
+// 	input.value = elem.textContent;
+	
+// 	input.addEventListener('blur', function() {
+// 		elem.textContent = this.value;
+// 		this.remove(); // удалим инпут
+// 	});
+	
+// 	elem.parentElement.appendChild(input);
+// });
+
+//Самостоятельно, не подсматривая в мой код, решите описанную задачу. 
+
+// let elem = document.querySelector('#elem');
+
+// elem.addEventListener('click', function() {
+//    let input = document.createElement('input');
+//    input.value = elem.textContent;
+
+//    input.addEventListener('blur', function() {
+//      elem.textContent = this.value;
+//      this.remove();
+//    });
+//    elem.parentElement.appendChild(input);
+// });
+
+
+
+
+////////////Прячем текст при редактировании элемента на JavaScript///
+
+/*
+ Давайте теперь сделаем так, чтобы при редактировании инпут появлялся в самом абзаце - вместо текста этого абзаца. Пусть затем при окончании редактирования инпут будет убираться, а вместо него опять появляться текст абзаца.
+
+Приступим к реализации.
+
+Для начала давайте сделаем так, чтобы по клику на абзац ему в конец добавлялся инпут с текстом этого абзаца: 
+*/
+/*
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	elem.appendChild(input);
+});
+
+ Наш код, однако, очень несовершенен - каждый раз по клику на абзац в него будет добавляться новый инпут.
+
+При этом, если в первом инпуте будет стоять текст абзаца, то во втором инпуте уже будет стоять текст абзаца вместе с первым инпутом, а третьем инпуте уже будет стоять текст абзаца вместе с двумя инпутами и так далее.
+
+Обратите также внимание на то, что клик по добавленному инпуту будет расцениваться как клик по абзацу: дело в том, что инпут находится в абзаце, и клик по инпуту просто всплывет выше к этому абзацу.
+
+Это приведет к тому, что после появления первого инпута при попытке нажать на него для того, чтобы начать редактирование, мы автоматически сделаем клик по абзацу со всеми вытекающими последствиями.
+
+Итак, проблема обрисована. Давайте теперь ее исправим.
+
+Для этого просто при появлении инпута отвяжем от абзаца обработчик клика. В этом случае только первый клик по абзацу будет приводить к появлению инпута, а остальные клики, сделанные после появления инпута, будут проигнорированы.
+
+Реализуем: 
+
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function func() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	elem.appendChild(input);
+	
+	elem.removeEventListener('click', func); // отвяжем событие
+});
+
+Давайте теперь сделаем так, чтобы при появлении инпута, текст самого абзаца исчезал. Для этого перед вставкой инпута textContent абзаца присвоим пустой строке: 
+
+
+
+
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function func() {
+	let input = document.createElement('input');
+	
+	input.value = elem.textContent; // сначала записываем текст абзаца в инпут
+	elem.textContent = ''; // затем убираем текст абзаца
+	elem.appendChild(input); // затем вставляем инпут
+	
+	elem.removeEventListener('click', func);
+});
+
+Давайте теперь сделаем так, чтобы при потери фокуса в инпуте текст этого инпута записывался в абзац: 
+
+
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function func() {
+	let input = document.createElement('input');
+	
+	input.value = elem.textContent;
+	elem.textContent = '';
+	elem.appendChild(input);
+	
+	input.addEventListener('blur', function() {
+		elem.textContent = this.value;
+	});
+	
+	elem.removeEventListener('click', func);
+});
+
+ Обратите внимание на то, что нам не нужно удалять инпут - он удаляет сам себя, когда записывает свой текст в абзац: так как инпут является частью текста абзаца, то запись какого-то текста в этот абзац просто удаляет наш инпут, и все.
+
+У нас, однако, есть еще одна проблема: текст абзаца будет редактироваться лишь первый раз. После первого редактирования повторное нажатие на текст абзаца ни к чему не приведет.
+
+Дело в том, что в момент появления инпута мы отвязали событие от абзаца по описанным выше причинам. Теперь нам необходимо в момент окончания редактирования привязать событие обратно.
+
+Сделаем это: 
+//получим ссылку на обзац
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function func() {
+   //по клику на абзац создадим инпут
+	let input = document.createElement('input');
+   //запишем текст абзаца в инпут
+	input.value = elem.textContent;
+	
+	elem.textContent = '';//убираем текст абзаца
+	elem.appendChild(input);//вставим вабзац инпут
+
+	//по потери фокуса, текст инпута запишем в абзац
+	input.addEventListener('blur', function() {
+		elem.textContent = this.value;
+		elem.addEventListener('click', func); // повесим событие обратно
+	});
+	
+	elem.removeEventListener('click', func);// отвяжем обработчик клика
+});
+
+*/
+
+
+//Самостоятельно, не подсматривая в мой код, решите описанную задачу. 
+
+/*
+Давайте теперь сделаем так, чтобы при редактировании инпут появлялся в самом абзаце - вместо текста этого абзаца. Пусть затем при окончании редактирования инпут будет убираться, а вместо него опять появляться текст абзаца. 
+*/
+
+// let elem = document.querySelector('#elem');
+
+// elem.addEventListener('click', function func() {
+//    let input = document.createElement('input');
+//    input.value = elem.textContent;
+   
+//    elem.textContent = '';
+//    elem.appendChild(input);
+
+//    input.addEventListener('blur', function() {
+//       elem.textContent = this.value;
+//    });
+
+//    elem.removeEventListener('click', func);
+// });
+
+
+//////////////Редактирование в группе элементов на JavaScript//////
+
+// let elems = document.querySelectorAll('p');
+
+// for (let elem of elems) {
+// 	elem.addEventListener('click', function func() {
+// 		let input = document.createElement('input');
+// 		input.value = elem.textContent;
+		
+// 		elem.textContent = '';
+// 		elem.appendChild(input);
+		
+// 		input.addEventListener('blur', function() {
+// 			elem.textContent = this.value;
+// 			elem.addEventListener('click', func);
+// 		});
+		
+// 		elem.removeEventListener('click', func);
+// 	});
+// }
+
+
+/*
+Дан тег ul. Сделайте так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого можно будет поредактировать текст этой li. 
+*/
+// let elems = document.querySelectorAll('#parent li');
+
+// for(let elem of elems ) {
+//    elem.addEventListener('click', function func() {
+//       let input = document.createElement('input');
+//       input.value = elem.textContent;
+
+//       elem.textContent = '';
+//       elem.appendChild(input);
+
+//       input.addEventListener('blur', function() {
+//          elem.textContent = this.value;
+//          elem.addEventListener('click', func);
+//       });
+//       elem.removeEventListener('click', func);
+//    });
+// }
+
+
+/*
+Дана HTML таблица. Сделайте так, чтобы по клику на любую ячейку в ней появлялся инпут для редактирования текста этой ячейки. 
+ <table #parent>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+ </table>
+*/
+
+// let elems = document.querySelectorAll('td');
+
+// for(let elem of elems) {
+//   elem.addEventListener('click', function func() {
+//       let input = document.createElement('input');
+//       input.value = elem.textContent;
+
+//       elem.textContent = '';
+//       elem.appendChild(input);
+
+//       input.addEventListener('blur', function() {
+//          elem.textContent = this.value;
+//       });
+//       elem.removeEventListener('click', func);
+//    });
+// }
+
+
+
+/////////Одновременное редактирование и удаление элементов////////
+/*
+<div id="parent">
+	<p><span>text1</span></p>
+	<p><span>text2</span></p>
+	<p><span>text3</span></p>
+</div>
+
+ Добавьте ссылку на удаление в конец каждого абзаца.
+
+Сделайте так, чтобы по клику на span в нем появлялся инпут для редактирования. 
+*/
+
+
+// let ps = document.querySelectorAll('#parent p');
+// for(let p of ps) {
+//       let remove =document.createElement('a');
+//       remove.href = '#';
+//       remove.textContent = 'remove';
+      
+//       p.appendChild(remove);
+      
+//       remove.addEventListener('click', function(event) {
+//          p.remove();
+//          event.preventDefault();
+//       });
+
+
+
+//       let span = p.querySelector('span');
+
+//       span.addEventListener('click', function func() {
+//          let input = document.createElement('input');
+//          input.value = input.textContent;
+         
+//          span.textContent = '';
+//          span.appendChild(input);
+//          input.focus();
+         
+//          input.addEventListener('blur', function() {
+//             span.textContent = this.value;
+//             span.addEventListener('click', func);
+//          });
+//          span.removeEventListener('click', func);
+//       });
+// }
+
+/*
+ Пусть теперь изначально тегов span нет:
+<div id="parent">
+	<p>text1</p>
+	<p>text2</p>
+	<p>text3</p>
+</div>
+
+Оберните сначала текст абзаца в теги span, добавьте к этим тегам возможность редактирования, а затем добавьте в конец каждого абзаца ссылку на удаление. 
+*/
+
+// let ps = document.querySelectorAll('#parent p');
+// for(let p of ps) {
+//    let span = document.createElement('span');
+//    span.textContent = p.textContent;
+//    p.textContent = '';
+//    p.appendChild(span);
+
+  
+//       span.addEventListener('click', function func() {
+//       let input = document.createElement('input');
+//       input.value = span.textContent;
+
+//       span.textContent = '';
+//       span.appendChild(input);
+//       input.focus();
+
+//       input.addEventListener('blur', function() {
+//          span.textContent = this.value;
+//          span.addEventListener('click', func);
+//       });
+//       span.removeEventListener('click', func);
+//    });
+
+
+
+//    let remove = document.createElement('a');
+//    remove.href = '#';
+//    remove.textContent = 'remove';
+
+//    p.appendChild(remove);
+
+//    remove.addEventListener('click', function func(event) {
+//       p.remove();
+//       event.preventDefault();
+//    });
+// }
+
+
+
+///////////////Стилизация элементов на JavaScript////////////////
+
+/*
+ Дан следующий HTML код:
+<p>text1</p>
+<p>text2</p>
+<p>text3</p>
+
+Добавьте в конец каждого абзаца ссылку, по клику на которую текст абзаца будет перечеркиваться (а ссылка - нет). 
+*/
+
+// let elems = document.querySelectorAll('p');
+
+// for(let elem of elems) {
+//    let span = document.createElement('span');
+//    span.textContent = elem.textContent;
+//    elem.textContent = '';
+//    elem.appendChild(span);
+
+//    let link = document.createElement('a');
+//    link.href = '';
+//    link.textContent = 'link';
+//    elem.appendChild(link);
+
+//    link.addEventListener('click', function(event) {
+//       span.classList.add('line');
+//       event.preventDefault();
+//    });
+// }
+
+/*
+Модифицируйте предыдущую задачу так, чтобы после нажатия на ссылку эта ссылка удалялась из абзаца (а текст абзаца становился перечеркнутым). 
+*/
+
+// let elems = document.querySelectorAll('p');
+
+// for(let elem of elems) {
+//    let span = document.createElement('span');
+//    span.textContent = elem.textContent;
+//    elem.textContent = '';
+//    elem.appendChild(span);
+
+//    let link = document.createElement('a');
+//    link.href = '';
+//    link.textContent = 'link';
+//    elem.appendChild(link);
+
+//    link.addEventListener('click', function(event) {
+//       span.classList.add('line');
+//       link.remove();
+//       event.preventDefault();
+//    });
+// }
+
+/*
+Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд с этой ссылкой должен стать зеленого фона. 
+
+<table>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+
+
+*/
+let trs = document.querySelectorAll('table tr');
+
+  let tr = document.createElement('tr');
+   for(let tr of trs) {
+      let td = document.createElement
+
+      let link = document.createElement('a');
+      link.href = '#';
+      link.textContent = 'link';
+      td.appendChild(link);
+   
+      link.addEventListener(function(event) {
+         link.classList.add();
+        event.preventDefault();
+      });
+   }
+
+
+
+
+      
+
+
+
+
+/*
+Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие отменяло это действие. 
+*/
+
+
+////////////Кнопки для скрытия и показа элемента на JavaScript/////
+
+
+
+
+

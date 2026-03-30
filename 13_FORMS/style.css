@@ -1,0 +1,16 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+.cologreen {
+   border: 2px solid #3b7c2d;
+}
+.colored {
+   border: 2px solid #eb1414;
+}
+#elem1 {
+   margin-bottom: 20px;
+}
