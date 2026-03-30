@@ -6,10 +6,18 @@ h1 {
    font-family: sans-serif;
 }
 
-td {
+/* td {
 	width: 50px;
 	height: 50px;
 	border: 1px solid black;
+} */
+td {
+   border: 2px solid blue;
+   width: 100px;
+   height: 100px;
+}
+.color {
+   background-color: #196b08;
 }
 .line {
    color: #176d11;

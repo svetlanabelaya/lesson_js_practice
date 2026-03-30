@@ -1218,34 +1218,47 @@ elem.addEventListener('click', function func() {
 
 
 */
-let trs = document.querySelectorAll('table tr');
+// let trs = document.querySelectorAll('#table tr');
 
-  let tr = document.createElement('tr');
-   for(let tr of trs) {
-      let td = document.createElement
+// for(let tr of trs) {
+//   let td = document.createElement('td');
+//   tr.appendChild(td);
 
-      let link = document.createElement('a');
-      link.href = '#';
-      link.textContent = 'link';
-      td.appendChild(link);
-   
-      link.addEventListener(function(event) {
-         link.classList.add();
-        event.preventDefault();
-      });
-   }
+//   let link = document.createElement('a');
+//   link.href = '#';
+//   link.textContent = 'link';
 
+//   td.appendChild(link);
 
+//   link.addEventListener('click', function(event) {
 
-
-      
-
-
+//     tr.classList.add('color');
+//     event.preventDefault();
+//   });
+// }
 
 
 /*
 Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие отменяло это действие. 
 */
+let trs = document.querySelectorAll('#table tr');
+
+for(let tr of trs) {
+  let td = document.createElement('td');
+  tr.appendChild(td);
+
+  let link = document.createElement('a');
+  link.href = '#';
+  link.textContent = 'link';
+
+  td.appendChild(link);
+
+  link.addEventListener('click', function (event) {
+
+    tr.classList.toggle('color');
+    event.preventDefault();
+  });
+}
 
 
 ////////////Кнопки для скрытия и показа элемента на JavaScript/////
