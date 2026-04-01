@@ -1598,8 +1598,7 @@ td {
 // for(let elem of arr) {
 // 	let li = document.createElement('li');
 // 	li.textContent = elem;
-
-//   logic(li);
+		//logic(li);
 // }
 
 // button.addEventListener('click', function() {
@@ -1632,5 +1631,579 @@ td {
 
 /*
 Модифицируйте предыдущую задачу так, чтобы в конце каждой li стояла ссылка 'удалить', с помощью которой можно будет удалить эту li из ul. 
+
 */
+
+// let arr = ['Svetlana', 'Alexandr', 'Ura', 'Anastasiya'];
+// let parent = document.querySelector('#parent');
+// let enter = document.querySelector('#enter');
+// let button = document.querySelector('#button');
+
+
+
+
+// for(let elem of arr) {
+// 	let li = document.createElement('li');
+// 	li.textContent = elem;
+// 		logic(li);
+// }
+
+// button.addEventListener('click', function() {
+// 	let li = document.createElement('li');
+// 	li.textContent = enter.value;
+
+// 	 parent.appendChild(li);
+// 	 logic(li);
+//   });
+
+// function logic(li) {
+// 	 let remove = document.createElement('a');
+// 		remove.href = '#';
+// 		remove.textContent = 'remove';
+// 		li.appendChild(remove);
+		
+// 		// 2. Создаем span для текста (чтобы отделить его от ссылки!)
+// 		let span = document.createElement('span');
+// 		span.textContent = li.textContent;
+
+// 		li.textContent = '';
+// 		li.appendChild(span);
+// 		li.appendChild(remove);
+
+// 		remove.addEventListener('click', function(event) {
+// 			li.remove();
+// 			event.preventDefault();
+// 		});
+
+//   // Редактирование (вешаем теперь не на весь li, а на SPAN!)
+// 	  span.addEventListener('click', function func() {
+// 		let input = document.createElement('input');
+// 		input.value = span.textContent;
+		
+// 		li.textContent = '';
+// 		li.appendChild(input);
+    
+// 		input.focus();
+	
+		
+// 		input.addEventListener('blur', function() {
+// 			span.textContent = this.value;
+// 			span.addEventListener('click', func);
+// 		});
+
+// 		span.removeEventListener('click', func);
+// 	});
+
+// }
+
+/*
+Модифицируйте предыдущую задачу так, чтобы в конце каждой li также стояла ссылка 'перечеркнуть', с помощью которой можно будет перечеркнуть текст данного тега li. 
+*/
+
+// let arr = ['Svetlana', 'Alexandr', 'Ura', 'Anastasiya'];
+// let parent = document.querySelector('#parent');
+// let enter = document.querySelector('#enter');
+// let button = document.querySelector('#button');
+
+
+
+
+// for(let elem of arr) {
+// 	let li = document.createElement('li');
+// 	li.textContent = elem;
+// 		logic(li);
+// }
+
+// button.addEventListener('click', function() {
+// 	let li = document.createElement('li');
+// 	li.textContent = enter.value;
+
+// 	 parent.appendChild(li);
+// 	 logic(li);
+//   });
+
+// function logic(li) {
+// 	 let remove = document.createElement('a');
+// 		remove.href = '#';
+// 		remove.textContent = 'remove';
+// 		li.appendChild(remove);
+		
+// 		// 2. Создаем span для текста (чтобы отделить его от ссылки!)
+// 		let span = document.createElement('span');
+// 		span.textContent = li.textContent;
+
+// 		li.textContent = '';
+// 		li.appendChild(span);
+// 		li.appendChild(remove);
+
+// 		remove.addEventListener('click', function(event) {
+// 			li.remove();
+// 			event.preventDefault();
+// 		});
+
+
+// 		//ссылка с перечеркиванием
+// 	 let line = document.createElement('a');
+// 		line.href = '#';
+// 		line.textContent = 'crossed';
+// 		line.href = '#';
+// 		li.appendChild(line);
+
+
+// 		line.addEventListener('click', function(event) {
+// 			span.classList.add('line');
+
+// 		});
+
+//   // Редактирование (вешаем теперь не на весь li, а на SPAN!)
+// 	  span.addEventListener('click', function func() {
+// 		let input = document.createElement('input');
+// 		input.value = span.textContent;
+		
+// 		li.textContent = '';
+// 		li.appendChild(input);
+    
+// 		input.focus();
+	
+		
+// 		input.addEventListener('blur', function() {
+// 			span.textContent = this.value;
+// 			span.addEventListener('click', func);
+// 		});
+
+// 		span.removeEventListener('click', func);
+// 	});
+
+// }
+// let elems = document.querySelectorAll('p');
+
+
+
+//////////////Массив объектов и таблица//////////////////////////////
+
+/*
+ Дан следующий массив с работниками:
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
+
+Выведите этих работников в HTML таблице. 
+
+При такой структуре хранения данных обычно запускают один цикл по массиву и создают каждую ячейку таблицы в ручную,
+*/
+
+/*
+Добавьте ячейкам созданной таблицы возможность редактирования. 
+*/
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// let table = document.querySelector('#table');
+
+// for(let employ of employees) {
+// 	let tr = document.createElement('tr');
+
+// 	let td1 = document.createElement('td');
+// 	td1.textContent = employ.name;
+// 	tr.appendChild(td1);
+	
+
+//   let td2 = document.createElement('td');
+// 	td2.textContent = employ.age;
+// 	tr.appendChild(td2);
+	
+	
+	
+//   let td3 = document.createElement('td');
+// 	td3.textContent = employ.salary;
+// 	tr.appendChild(td3);
+
+// 	table.appendChild(tr);
+
+	// ticher(td1);
+	// ticher(td2);
+	// ticher(td3);
+// }
+
+// function ticher(td) {
+// 		td.addEventListener('click', function func() {
+// 			let input = document.createElement('input');
+// 			input.value = td.textContent;
+	
+// 			td.textContent = '';
+// 			td.appendChild(input);
+// 			input.focus();
+	
+// 			input.addEventListener('blur', function(event) {
+// 				td.textContent = this.value;
+// 			});
+// 		});
+// }
+
+//////второй вариант решения предыдущей задачи делегирование/////////////
+// // Вешаем клик на ВСЮ таблицу
+// table.addEventListener('click', function(event) {
+// 	// 1. Проверяем, что кликнули именно по тегу td
+// 	let td = event.target.closest('td');
+	
+// 	// Если кликнули мимо ячейки (например, по самой таблице) — игнорируем
+// 	if (!td) return; 
+	
+// 	// Если внутри ячейки УЖЕ есть инпут (ты уже редактируешь) — тоже игнорируем
+// 	if (td.querySelector('input')) return;
+
+// 	// 2. Наш привычный алгоритм
+// 	let input = document.createElement('input');
+// 	input.value = td.textContent;
+
+// 	td.textContent = '';
+// 	td.appendChild(input);
+// 	input.focus();
+
+// 	input.addEventListener('blur', function() {
+// 		td.textContent = this.value;
+// 		// Здесь НЕ нужен removeEventListener и возвращение клика! 
+// 		// Таблица всегда продолжает слушать клики.
+// 	});
+// });
+
+
+/*
+ Дан следующий массив с работниками:
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
+
+Выведите этих работников в HTML таблице. 
+
+При такой структуре хранения данных обычно запускают один цикл по массиву и создают каждую ячейку таблицы в ручную,
+*/
+/*
+Добавьте в вашу таблицу новую колонку со ссылкой на удаления ряда из таблицы. 
+*/
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// let table = document.querySelector('#table');
+
+// for(let employ of employees) {
+// 	let tr = document.createElement('tr');
+
+// 	let td1 = document.createElement('td');
+// 	td1.textContent = employ.name;
+// 	tr.appendChild(td1);
+	
+
+//   let td2 = document.createElement('td');
+// 	td2.textContent = employ.age;
+// 	tr.appendChild(td2);
+	
+	
+	
+//   let td3 = document.createElement('td');
+// 	td3.textContent = employ.salary;
+// 	tr.appendChild(td3);
+
+// 	table.appendChild(tr);
+// }
+// /*
+// closest - Метод closest ищет ближайший родительский элемент, подходящий под указанный CSS селектор, при этом сам элемент тоже включается в поиск.
+// */
+// table.addEventListener('click', function(event) {
+// 	// ШАГ 1: Проверка на ссылку! СТАВИМ СЮДА
+//     if (event.target.tagName === 'A') return;
+
+
+// 	// 1. Проверяем, что кликнули именно по тегу td
+// 	let td = event.target.closest('td');
+
+// 		if(td.querySelector('a')) return; 
+
+// 	// Если кликнули мимо ячейки (например, по самой таблице) — игнорируем
+// 	if(!td) return;
+// 	// Если внутри ячейки УЖЕ есть инпут (ты уже редактируешь) — тоже игнорируем
+// 	if(td.querySelector('input')) return;
+
+// 	// 2. Наш привычный алгоритм
+// 	let input = document.createElement('input');
+// 	input.value = td.textContent;
+
+// 	td.textContent = '';
+// 	td.appendChild(input);
+// 	input.focus();
+
+// 	input.addEventListener('blur', function() {
+// 			td.textContent = this.value;
+// 	});
+// });
+// let trs = document.querySelectorAll('#table tr');
+
+// for (let tr of trs) {
+
+
+// 	let td = document.createElement('td');
+//   tr.appendChild(td);
+
+// 	let remove = document.createElement('a');
+	
+// 	remove.textContent = 'remove';
+// 	remove.href = '#';
+// 	td.appendChild(remove);
+
+	
+	
+// 	remove.addEventListener('click', function(event) {
+//     event.stopPropagation(); 
+
+// 		tr.remove();
+// 		event.preventDefault();
+// 	});
+	
+// }
+
+/*
+Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников. 
+      <table id="table"></table>
+      <input id="name" type="text">
+      <input id="suname" type="text">
+      <input id="salary" type="text">
+      <button id="button"></button>
+*/
+
+// let table = document.querySelector('#table');
+// let button = document.querySelector('#button');
+// let name = document.querySelector('#name');
+// let surname = document.querySelector('#surname');
+// let salary = document.querySelector('#salary');
+
+// button.addEventListener('click', function() {
+// 	let tr = document.createElement('tr');
+
+// 	let td1 = document.createElement('td');
+// 	let td2 = document.createElement('td');
+// 	let td3 = document.createElement('td');
+
+// 	td1.textContent = name.value;
+// 	tr.appendChild(td1);
+// 	td2.textContent = surname.value;
+// 	tr.appendChild(td2);
+// 	td3.textContent = salary.value;
+// 	tr.appendChild(td3);
+
+
+// 	let td4 = document.createElement('td');
+  
+// 	let remove = document.createElement('a');
+// 	remove.textContent = 'удалить';
+// 	remove.href = '#';
+
+//   td4.appendChild(remove);
+//   tr.appendChild(td4);
+
+// 	remove.addEventListener('click', function(event) {
+// 		tr.remove();
+// 		event.stopPropagation();
+// 		event.preventDefault();
+// 	});
+
+// 	name.value = '';
+// 	surname.value = '';
+// 	salary.value = '';
+// 	table.appendChild(tr);
+
+// 	redact(td1);
+// 	redact(td2);
+// 	redact(td3);
+// });
+
+// function redact(td) {
+// 	td.addEventListener('click', function() {
+// 		let input = document.createElement('input');
+// 		input.value = td.textContent;
+
+// 		td.textContent = '';
+// 		td.appendChild(input);
+// 		input.focus();
+
+// 		input.addEventListener('blur', function() {
+// 			td.textContent = this.value;
+
+// 		});
+// 	});
+// }
+
+
+/*
+table.addEventListener('click', function(event) {
+	let target = event.target; // КТО нажат?
+	
+	// Если это ссылка "удалить"
+	if (target.tagName == 'A') {
+		target.closest('tr').remove();
+    }
+		
+	// Если это ячейка с данными (не последняя с кнопкой)
+	if (target.tagName == 'TD' && target.textContent !== 'удалить') {
+		// Вызываем функцию редактирования для этой ячейки
+		redact(target);
+		}
+		});
+		*/
+		
+		/*
+		Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников. 
+		<table id="table"></table>
+		<input id="name" type="text">
+		<input id="suname" type="text">
+		<input id="salary" type="text">
+		<button id="button"></button>
+		*/
+		
+		//получим ссылки на наши id
+		// let table = document.querySelector('#table');
+		// let button = document.querySelector('#button');
+		// let name = document.querySelector('#name');
+		// let surname = document.querySelector('#surname');
+		// let salary = document.querySelector('#salary');
+		
+		
+		/*
+		Функция redact(td): она просто умеет превращать одну конкретную ячейку в инпут и обратно (ты её уже написала, она супер).
+		Клик по кнопке: теперь он стал очень коротким. Его задача — только создать tr, наполнить td текстом из инпутов и добавить в таблицу. Никаких обработчиков событий вешать на ячейки здесь больше не нужно.
+		Блок делегирования: один table.addEventListener, который следит за всеми кликами внутри таблицы.
+		*/
+		
+// 		//1. Кто слушает КНОПКА, внутри обработчика мы будем создавать таблицу. кнопка батон будет добавлять работника в таблицу по нажатию на кнопку
+// 			button = addEventListener('click', function() {
+// 			let tr = document.createElement('tr'); //строка
+			
+// 			//создадим на каждый наш инпут свою ячейку. В текст ячейки нужно записать текст наших инпутов и эти ячейки записать в столбец. то есть при клике на кнопку будут создаваться ячейки и записываться в них текст из инпутов которые введет пользователь.
+// 			let td1 = document.createElement('td');//ячейки
+// 			td1.textContent = name.value;
+// 			tr.appendChild(td1);
+// 			let td2 = document.createElement('td');
+// 			td2.textContent = surname.value;
+// 			tr.appendChild(td2);
+// 			let td3 = this.document.createElement('td');
+// 			td3.textContent = salary.value;
+// 			tr.appendChild(td3);
+			
+// 			//Создадим ячейку для нашей ссылки на удаление
+// 			let td4 = document.createElement('td');
+// 			tr.appendChild(td4);
+
+// 			let remove = document.createElement('a');
+// 			remove.textContent = 'удалить';
+// 			remove.href = '#';
+
+// 			td4.appendChild(remove);// Кладём ссылку в ячейку
+// 			tr.appendChild(td4);     // Кладём ячейку в строку
+
+// 			//запишем всю строку в таблицу
+// 			table.appendChild(tr);
+
+// 			//Очистим наши инпуты для удобства пользователя 
+// 			name.value = '';
+// 			surname.value = '';
+// 			salary.value = '';
+// 		});
+
+// 		//2 - БЛОК ДЕЛЕГИРОВАПНИЯ (Один на всю таблицу)
+
+// 		table.addEventListener('click', function(event) {
+// 			let target = event.target; //Укажет на элемент, в котором случилось событие
+
+// 			// Если кликнули по ссылке "удалить"
+// 			if(target.tagName === 'A') {
+// 				event.preventDefault();// Чтобы страница не прыгала вверх
+// 				target.closest('tr').remove();
+// 			}
+
+// 				// Если кликнули по ячейке (но не той, где кнопка "удалить")
+// 				if(target.tagName === 'TD' && target.firstElementChild === null) {
+// 						redact(target); // вызываем функцию
+// 				}
+
+// 				/*
+// 				target.tagName === 'A': Мы проверяем, что клик пришелся именно на ссылку. Метод .closest('tr') сам найдет родительскую строку и удалит её целиком.
+// 			target.firstElementChild === null: Это хитрая проверка. В ячейках с именем/зарплатой внутри только текст (детей-элементов нет). А в ячейке с удалением внутри лежит ссылка <a>. Так мы запретим редактировать ячейку с кнопкой «удалить».
+
+// 				*/
+// 		});
+// 	//////БЛОК ФУНКЦИИ РЕДАКТИРОВАНИЕ Ячейки
+// 		function redact(td) {
+// 	    td.addEventListener('click', function() {
+// 		  let input = document.createElement('input');
+// 		  input.value = td.textContent;
+
+// 		  td.textContent = '';
+// 		  td.appendChild(input);
+// 		  input.focus();
+
+// 		  input.addEventListener('blur', function() {
+// 			td.textContent = this.value;
+
+// 		});
+// 	});
+// }
+
+///////////////////////Массив объектов и список////////////////////////
+
+/*
+ Дан следующий массив с работниками:
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
+
+Выведите на экран каждого работника в своем теге li тега ul. 
+
+
+ <ul id="list"></ul>
+*/
+// let list = document.querySelector('#list');
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// for(let elem of employees) {
+// 	let li = document.createElement('li');
+// 	li.textContent = `${elem.name} - ${elem.age} - ${elem.salary}`;
+// 	list.appendChild(li);
+// }
+
+/*
+Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля. 
+*/
+
+
+
+
+
+
+
+
+
+
+			
+			
+
+
+
 

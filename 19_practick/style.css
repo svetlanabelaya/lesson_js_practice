@@ -5,17 +5,13 @@ body {
 h1 {
    font-family: sans-serif;
 }
-/* 
-td {
-	width: 50px;
-	height: 50px;
-	border: 1px solid rgb(17, 46, 211);
-} */
- td {
+
+
+ /* td {
    border: 2px solid blue;
    width: 100px;
    height: 100px;
-}
+} */
 /*
 .color {
    background-color: #196b08;
@@ -36,6 +32,9 @@ td {
 .active {
    background: #0426e7;
 } */
+ /* .line {
+   text-decoration: line-through;
+ }
 
 .color1 {
    background: #bd1eee;
@@ -46,4 +45,15 @@ td {
 }
 .color3 {
    background: #ccee09;
+} */
+
+
+td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid rgb(17, 46, 211);
 }
+input {
+   margin-bottom: 10px;
+}
+
