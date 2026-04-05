@@ -1,6 +1,8 @@
 
 /////////////////////Практика///////////////////////
 
+// const { createElement } = require("react");
+
 
 
 
@@ -2171,28 +2173,213 @@ let employees = [
 
 Выведите на экран каждого работника в своем теге li тега ul. 
 
+      <ul id="list"></ul>
+      */
+     
+     // let list = document.querySelector('#list');
+     // let employees = [
+      //       {name: 'employee1', age: 30, salary: 400},
+      //       {name: 'employee2', age: 31, salary: 500},
+      //       {name: 'employee3', age: 32, salary: 600},
+      // ];
+      
+      // for(let employ of employees) {
+         //    let li = document.createElement('li');
+         
+         //    for(let key in employ) {
+            //       let span = document.createElement('span');
+            //       span.textContent = employ[key];
+            
+            //       li.appendChild(span);
+            //       li.append(' ');
+            //    }
+            //    list.appendChild(li);
+            // }
+            
+               
+   /*
+   //    Дан следующий массив с работниками:
+   // let employees = [
+   //    {name: 'employee1', age: 30, salary: 400},
+   //    {name: 'employee2', age: 31, salary: 500},
+   //    {name: 'employee3', age: 32, salary: 600},
+   // ];
 
- <ul id="list"></ul>
-*/
-// let list = document.querySelector('#list');
+         <ul id="list"></ul>
+   */
 
-// let employees = [
-// 	{name: 'employee1', age: 30, salary: 400},
-// 	{name: 'employee2', age: 31, salary: 500},
-// 	{name: 'employee3', age: 32, salary: 600},
-// ];
 
-// for(let elem of employees) {
-// 	let li = document.createElement('li');
-// 	li.textContent = `${elem.name} - ${elem.age} - ${elem.salary}`;
-// 	list.appendChild(li);
-// }
+   //Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля. 
+      
+      
 
+   // let list = document.querySelector('#list');
+   // let employees = [
+   //       {name: 'employee1', age: 30, salary: 400},
+   //       {name: 'employee2', age: 31, salary: 500},
+   //       {name: 'employee3', age: 32, salary: 600},
+   // ];
+
+   // for(let employ of employees) {
+   //    let li = document.createElement('li');
+
+   //    for(let key in employ) {
+   //       let span = document.createElement('span');
+   //       span.textContent = employ[key];
+
+   //       li.appendChild(span);
+   //       li.append(' ');
+
+   //       span.addEventListener('click', function func() {
+   //          let input = document.createElement('input');
+   //          input.value = span.textContent;
+
+   //          span.textContent = '';
+   //          span.appendChild(input);
+   //          input.focus();
+
+   //          input.addEventListener('blur', function() {
+   //             span.textContent = this.value;
+   //             span.addEventListener('click', func)
+   //          });
+   //          span.removeEventListener('click', func);
+   //       });
+   //    }
+   //    list.appendChild(li);
+   // }
+         
+   ///Добавьте в конец каждого тега li ссылку на удаление этого li из списка. 
+
+   // let list = document.querySelector('#list');
+   // let employees = [
+   //       {name: 'employee1', age: 30, salary: 400},
+   //       {name: 'employee2', age: 31, salary: 500},
+   //       {name: 'employee3', age: 32, salary: 600},
+   // ];
+
+   // for(let employ of employees) {
+   //    let li = document.createElement('li');
+
+   //    for(let key in employ) {
+   //       let span = document.createElement('span');
+   //       span.textContent = employ[key];
+
+   //       li.appendChild(span);
+   //       li.append(' ');
+
+   //       span.addEventListener('click', function func() {
+   //          let input = document.createElement('input');
+   //          input.value = span.textContent;
+
+   //          span.textContent = '';
+   //          span.appendChild(input);
+   //          input.focus();
+
+   //          input.addEventListener('blur', function() {
+   //             span.textContent = this.value;
+   //             span.addEventListener('click', func)
+   //          });
+   //          span.removeEventListener('click', func);
+   //       });
+   //    }
+   //      let remove = document.createElement('a');
+
+   //       remove.textContent = 'удалить';
+   //       remove.href = '#';
+
+   //       li.appendChild(remove);
+
+   //       remove.addEventListener('click', function(event) {
+   //          li.remove(); //удалим  ли
+   //          event.preventDefault(); //сделаем ссылку не активной
+   //       });
+   //    list.appendChild(li);
+   // }
+
+
+///Под списком сделайте форму для добавления нового работника. 
 /*
-Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля. 
+      <ul id="list"></ul>
+      <input type="text" id="name">
+      <input type="text" id="age">
+      <input type="text" id="salary">
+      <button id="enter">Добавить</button>
 */
 
+//  let list = document.querySelector('#list');
+//  let nameInput = document.querySelector('#nameInput');
+//  let ageInput = document.querySelector('#ageInput');
+//  let salaryInput = document.querySelector('#salaryInput');
+//  let enter = document.querySelector('#enter');
 
+//    let employees = [
+//          {name: 'employee1', age: 30, salary: 400},
+//          {name: 'employee2', age: 31, salary: 500},
+//          {name: 'employee3', age: 32, salary: 600},
+//    ];
+
+//    //переберем циклом наш массив с объектами
+
+//    for(let employ of employees) {
+//       createEmployeesLi(employ);
+//    }
+//    //Создадим функцию которая будет, создавать новые li, обертывать текст ли в спан, редактировать этот спан и сщздавать рядом ссылку на удаление
+//    function createEmployeesLi(employ) {
+//       let li = document.createElement('li'); 
+//       for(let key in employ) { //перебор ключей объекта
+//          let span = document.createElement('span');
+//          span.textContent = employ[key];//добавим в спан наш ключи объекта
+
+//          li.appendChild(span);//добавим спан в наши ли
+//          li.append(' ');//пробел между элементами
+         
+//          //Прослушаем спан
+//          span.addEventListener('click', function func() {
+//             let input = document.createElement('input');
+//             input.value = span.textContent;
+
+//             span.textContent = ''; //затрем текст спана
+//             span.appendChild(input);//вместо текста добавим инпут
+//             input.focus();
+
+//             //прослушаем инпут
+//             input.addEventListener('blur', function() {
+//                span.textContent = this.value;//В текст спан запишем введеные данные из инпута
+//                span.addEventListener('click', func); // отвяжем обработчик клика чтобы чтобы не копировались инпуты
+//             });
+//             span.removeEventListener('click', func); //удалим обработчик совсем
+//          });
+//       //создание ссылки на удалениие
+//         let remove = document.createElement('a');
+
+//          remove.textContent = 'удалить';//Запишем для ссылки наазначение
+//          remove.href = '#';//уберем переход по ссылке
+
+//          li.appendChild(remove);// добавим ссылку в ли
+
+//          remove.addEventListener('click', function(event) {
+//             li.remove(); //удалим  ли
+//             event.preventDefault(); //сделаем ссылку не активной
+//          });
+//       list.appendChild(li);
+//    }
+
+//    enter.addEventListener('click', function() {
+//       //По клику на кнопку будет создаваться новый объект
+//       let newEmploy = {
+//          name: nameInput.value,
+//          age: ageInput.value,
+//          salary: salaryInput.value
+//       }
+//       createEmployeesLi(newEmploy);
+      
+//       //Очистим инпут
+//       nameInput.value = '';
+//       ageInput.value = '';
+//       salaryInput.value = '';
+//    });
+
+ 
 
 
 

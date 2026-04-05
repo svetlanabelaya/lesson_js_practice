@@ -1,10 +1,10 @@
 
 
-/////////////////////////////Функции и DOM///////////////////////////////////////
+/////////////////////////////Функции и DOM/////////////////////
 
-// const { createElement } = require("react");
 
-////////////////////////Функции для работы с DOM элементом на JavaScript///////////////////
+
+////////Функции для работы с DOM элементом на JavaScript//////////////
 
 /*
  Сейчас мы научимся делать вспомогательные функции, выполняющие какие-либо операции с DOM. Например, давайте сделаем функцию, которая первым параметром будет принимать id элемента, а вторым - текст элемента, и будет устанавливать этому элементу новый текст.
@@ -49,17 +49,27 @@ setText('elem2', 'text2');
 // setText('elem2', 'text2');
 
 
+// function setText(selector, text) {
+//  let elem = document.querySelector(selector);
+//  elem.textContent = text;
+// }
+// setText('.elem1', 'text1');
+// setText('.elem2', 'text2');
+// setText('#elem3', 'text3');
+// setText('#elem4', 'text4');
+// setText('div', 'text');
+
 /*
 Сделайте функцию setAttr, которая будет менять атрибут DOM элементу. Пусть первым параметром функция принимает селектор элемента, вторым - имя атрибута, а третьим - его новое значение. 
 */
+   // function setAttr(selector, name, value) {
+   //    let color = document.querySelector(selector);
+   //    color.setAttribute(name, value);
+   // }
+   // setAttr('#elem', 'class', 'blue');
 
 
-// function setAttr(selector, name, value) {
-//   let elem = document.querySelector(selector);
-//   elem.setAttribute(name, value);
-// }
- 
-// setAttr('#elem1', 'name', 'myName');
+
 
 
 
@@ -95,18 +105,16 @@ setText('.elem', 'text');
    <p class="elem"></p>
 */
 
+
+
 // function appendText(selector, text) {
-//   let elems = document.querySelectorAll(selector);
-//   for(let elem of elems) {
-//     elem.append(text);
-//   }
+//    let elems = document.querySelectorAll(selector);
 
+//    for(let elem of elems) {
+//       elem.textContent = text;
+//    }
 // }
-
-// appendText('.elem', 'новости');
-
-
-
+// appendText('div', 'text');
 
 
 
@@ -154,18 +162,21 @@ function forEach(selector, func) {
    <p class="elem"></p>
    <p class="elem"></p>
 */
-
-// forEach('.elem', function(elem) {
-// 	elem.textContent += '!';
+// forEach('p', function(elem) {
+//    elem.textContent += '!';
 // });
 
 // function forEach(selector, func) {
-// 	let elems = document.querySelectorAll(selector);
-	
-// 	for (let elem of elems) {
-// 		func(elem);
-// 	}
-// }
+//   let elems = document.querySelectorAll(selector);
+
+//   for(let elem of elems) {
+//       func(elem)
+//   }
+// };
+
+
+
+
 
 
 ///////Передача порядкового номера в коллбэк на JavaScript////////////
@@ -174,17 +185,19 @@ function forEach(selector, func) {
 Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте ему в начало его порядковый номер. 
 */
 
-// forEach('.elem', function(elem, index) {
-// 	elem.prepend(index + '-');
+
+// forEach('p', function(p, index) {
+//    p.textContent = index + p.textContent;
 // });
 
 // function forEach(selector, func) {
-// 	let elems = document.querySelectorAll(selector);
-	
-// 	for (let i = 0; i < elems.length; i++) {
-// 		func(elems[i], i);
-// 	}
+//    let elems = document.querySelectorAll(selector);
+
+//    for(let i = 0; i < elems.length; i++) {
+//       func(elems[i], i);
+//    }
 // }
+
 
 
 ////////////Передача DOM элемента параметром функции////////////
@@ -204,17 +217,52 @@ function forEach(selector, func) {
 Сделайте функцию appendText, которая первым параметром будет принимать DOM элемент, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец этого элемента. 
 */
 
-// function appenText(elem, text) {
-//    elem.append(elem.textContent += 'new text');
+// function appendText(elem, text) {
+//    elem.textContent += ' ' + text;
 // }
 
-// let elem1 = document.getElementById('elem1');
-// appenText(elem1,'text1');
-// let elem2 = document.getElementById('elem2');
-// appenText(elem2,'text2');
+// let elem1 = document.querySelector('#elem1');
+// let elem2 = document.querySelector('#elem2');
+// let elem3 = document.querySelector('#elem3');
+// let elem4 = document.querySelector('#elem4');
+// let elem5 = document.querySelector('#elem5');
+// appendText(elem1, 'text');
+// appendText(elem2, 'text');
+// appendText(elem3, 'text');
+// appendText(elem4, 'text');
+// appendText(elem5, 'text');
+
+//Даны абзацы. Получите их, переберите циклом и каждому добавьте в конец '!' с помощью функции appendText, сделанной в предыдущей задаче. 
+
+// function appendText(elem, text) {
+//    elem.textContent += text;
+// }
+
+// let elems = document.querySelectorAll('.elem');
+
+// for(let elem of elems) {
+//   appendText(elem, '!');
+// }
+
+/*
+Сделайте функцию setValue, которая первым параметром будет принимать ссылку на инпут, а вторым - текст. Сделайте так, чтобы данная функция устанавливала переданный текст в value инпута. 
+*/
+
+// function setValue(elem, text) {
+//    elem.value = text.textContent;
+// }
+
+// let inp = document.querySelector('.inp');
+// let elText = document.querySelector('.elText');
+// let btn = document.querySelector('.btn');
+
+//    btn.addEventListener('click', function() {
+//       setValue(inp, elText);
+//    });
+   
 
 
-
+      
 ///////Передача группы DOM элементов параметрами функций/////////
 
 // function setText(elems, text) {
@@ -232,12 +280,14 @@ function forEach(selector, func) {
 
 // function appendText(elems, text) {
 //    for(let elem of elems) {
-//       elem.append(' ' + text);
+//       elem.textContent += text; 
 //    }
 // }
 
 // let elems = document.querySelectorAll('.elem');
-// appendText(elems, 'text');
+// appendText(elems, "  text");
+
+
 
 /*
 Сделайте функцию appendElem, которая первым параметром будет принимать ссылку на DOM объект, в котором лежит тег ul, а вторым - текст. Сделайте так, чтобы данная функция создавала новую li с переданным текстом и добавляла ее в конец переданного тега ul. 
@@ -249,43 +299,39 @@ function forEach(selector, func) {
       <li></li>
    </ul>
 */
+// function appendElem(elem, text) {
 
-// function appendElement(parent, text) {
-//    // Создаем новую li
-//    let li =  document.createElement('li');
-     
-//    // Записываем текст
+//    let li = document.createElement('li');
 //    li.textContent = text;
+//    elem.append(li);
+   
+// }
+// let elem = document.querySelector('.elem');
+// appendElem(elem, 'text');
+// appendElem(elem, 'text');
+// appendElem(elem, 'text');
+// appendElem(elem, 'text');
+// appendElem(elem, 'text');
 
-//    parent.append(li);
-// } 
-// let parent = document.querySelector('.parent')
-// appendElement(parent, 'text');
+
 
 /*
 Дан массив и ul. С помощью функции appendElem, созданной в предыдущей задаче, запишите каждый элемент массива в отдельную li в этом ul. 
 */
+// let arr = ['sveta', 'sasha', 'ura', 'nastiy'];
+// let list = document.querySelector('.list');
 
-// let arr = ['один', 'два', 'три', 'четыре', 'пять'];
 
-// function appendElement(parent, text) {
-//    // Создаем новую li
-//    let li =  document.createElement('li');
-     
-//    // Записываем текст
+// function appendElem(elem, text) {
+//    let li = document.createElement('li');
 //    li.textContent = text;
-
-//    parent.append(li);
+//    elem.append(li);   
 // }
 
-// for(let elem of arr) {
-//    let parent = document.querySelector('.parent')
-//    appendElement(parent, elem);
+// for (let elem of arr) {
+//    appendElem(list, elem);
+   
 // }
-
-// let parent = document.querySelector('.parent')
-// appendElement(parent, 'text');
-
 
 
 
@@ -440,9 +486,89 @@ function createTable(rows, cols, parent) {
 // let div = document.querySelector('div');
 // createCalendar(div);
 
+// function createTable(rows, cols, parent) {
+// 	let table = document.createElement('table');
+	
+// 	for (let i = 0; i < 3; i++) {
+//       let tr = document.createElement('tr');
+
+// 		for (let j = 0; j < 4; j++) {
+// 			let td = document.createElement('td');
+         
+//          tr.appendChild(td);
+// 		}
+//       table.appendChild(tr);
+// 	}
+	
+// 	parent.appendChild(table);
+// }
+
+
+// let div = document.querySelector('#elem');
+// createTable(3, 4, div);
+
+
+///Возврат таблицы из функции на JavaScript///////
+
+//Переделайте вашу функцию createTable в соответствии с описанным в теории. 
+// function createTable(rows, cols, parent) {
+// 	let table = document.createElement('table');
+	
+// 	for (let i = 0; i < rows; i++) {
+//       let tr = document.createElement('tr');
+
+// 		for (let j = 0; j < cols; j++) {
+// 			let td = document.createElement('td');
+         
+//          tr.appendChild(td);
+// 		}
+//       table.appendChild(tr);
+// 	}
+   
+//     return table;
+// }
+
+
+
+// let div = document.querySelector('#elem');
+// let table = createTable(5, 3);
+// div.appendChild(table);
+
+/*
+ Пусть у нас есть вот такой див с абзацами:
+<div id="elem">
+	<p>1</p>
+	<p>2</p>
+	<p>3</p>
+</div>
+
+С помощью функции createTable создайте новую таблицу, а затем вставьте ее в конец дива. 
+*/
+
+
+// function createTable(rows, cols, parent) {
+//    let table = document.createElement('table');
+
+//    for(let i = 0; i < rows; i++) {
+//       let tr = document.createElement('tr');
+
+//       for(let j = 0; j < cols; j++) {
+//          let td = document.createElement('td');
+
+//          tr.appendChild(td);
+//       }
+//       table.appendChild(tr);
+//    }w
+//    return table;
+// }
+
+// let div = document.querySelector('#elem');
+// let table = createTable(2, 3);
+
+// div.append(table);
 
 
 
 
-///////////Возврат таблицы из функции на JavaScript///////////////
+/////////Функция для создания таблицы из массива/////////////
 
