@@ -1,0 +1,19 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+
+/* #elem {
+   width: 300px;
+   height: 150px; 
+   border: 25px solid rgb(218, 171, 124);
+   background: #cae8ac;
+   overflow: auto;
+   padding: 25px;
+   text-align: justify;
+   /* white-space: nowrap; текст выстроится в одну длинную строку
+}
+*/

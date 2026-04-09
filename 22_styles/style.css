@@ -1,0 +1,27 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+
+#elem {
+   font-family: 2em;
+}
+/* p.active {
+   color: red;
+}
+p:not(active) {
+   color: black;
+} */
+
+[data-type="green"] {
+   border: 3px solid green;
+}
+[data-type="yellow"] {
+   border: 3px solid yellow;
+}
+[data-type="red"] {
+   border: 3px solid red;
+}
