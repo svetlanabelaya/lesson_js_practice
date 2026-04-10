@@ -6,6 +6,19 @@ h1 {
    font-family: sans-serif;
 }
 body {
-  height: 2000px;
+  height: 1000px;
   width: 3000px;
+}
+
+
+#elem {
+   margin-top: 1000px;
+   width: 300px;
+   height: 200px;
+   background: #0ffae6;
+   border: 2px solid #130ffa;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
