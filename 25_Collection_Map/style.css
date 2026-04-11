@@ -1,0 +1,24 @@
+body {
+   background-color: #c3fcf7;
+   font-family: sans-serif;
+}
+h1 {
+   font-family: sans-serif;
+}
+input {
+   margin-bottom: 10px;
+}
+.block {
+   margin: 0 auto;
+   border: 3px solid blue;
+   width: 550px;
+   background: #0609c2;
+   color: white;
+   border-radius: 5px;
+}
+button {
+   background: #7b04dd;
+   margin-bottom: 30px;
+   color: wheat;
+   border-radius: 5px;
+}
