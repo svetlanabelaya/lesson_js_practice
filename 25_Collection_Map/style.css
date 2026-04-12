@@ -8,7 +8,7 @@ h1 {
 input {
    margin-bottom: 10px;
 }
-.block {
+/* .block {
    margin: 0 auto;
    border: 3px solid blue;
    width: 550px;
@@ -21,4 +21,24 @@ button {
    margin-bottom: 30px;
    color: wheat;
    border-radius: 5px;
+} */
+
+/* .red {
+   width: 200px;
+   height: 200px;
+   background: red;
 }
+.green {
+   width: 200px;
+   height: 200px;
+   background: green;
+}
+.blue {
+   width: 200px;
+   height: 200px;
+   background: blue;
+}
+.yellow {
+   background: yellow;
+} */
+
