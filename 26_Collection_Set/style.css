@@ -5,3 +5,7 @@ body {
 h1 {
    font-family: sans-serif;
 }
+.blue {
+   background: rgb(13, 13, 213);
+   color: rgb(245, 243, 238);
+}
