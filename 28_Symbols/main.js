@@ -196,11 +196,133 @@ let arr = [1, 2, 3];
 Описанным в уроке способом добавьте в массив функцию, которая будет возвращать сумму элементов массива. 
 */
 
+//Вызовите созданную функцию и убедитесь, что она верно находит сумму. 
 
+//Добавьте в массив несколько элементов с помощью метода push. Убедитесь, что функция будет находить сумму с учетом новых элементов. 
+
+// let arr = [1, 2, 3,];
+// let sym = Symbol();
+
+// arr.push(5, 5, 3); //добавим новые элементы в массив
+// arr[sym] = function() {
+//    let sum = 0;
+
+//    for(let key in this) {
+//       sum += this[key];
+//    }
+//    return sum;
+// }
+
+// let sum = arr[sym]();
+// console.log(sum);
+
+
+
+
+
+////////////////////Глобальные символы в JavaScript/////////////////
 /*
-Вызовите созданную функцию и убедитесь, что она верно находит сумму. 
+Пусть у вас есть несколько объектов. Добавьте каждому из них ключ в виде символа с именем 'sum'. Сделайте в этом ключе функцию, которая будет возвращать сумму элементов объекта. 
+*/
+
+// let obj1 = {a: 1, b: 2, c: 3};
+// let obj2 = {у: 4, z: 5, x: 6};
+// let obj3 = {ay: 1, bz: 8, cx: 9};
+
+// //1. Создаем символ с именем sum
+// let sym = Symbol('sum');
+
+// //2. Описываем общую функциюдля подсчета суммы
+//  function funcSum() {
+//    let sum = 0;
+//    for(let key in this) {
+//      // Важно: проверяем, что значение — число, 
+//      // чтобы случайно не попытаться прибавить саму функцию
+//      if(typeof this[key] === 'number') {
+//         sum += this[key];
+//      }  
+//    }
+//    return sum;
+//  }
+
+//  // 3. Добавляем эту функцию в каждый объект по ключу-символу
+//  obj1[sym] = funcSum;
+//  obj2[sym] = funcSum;
+//  obj3[sym] = funcSum;
+
+//  //4. Проверяем
+//  console.log(obj1[sym]());
+//  console.log(obj2[sym]());
+//  console.log(obj3[sym]());
+
+
+
+
+////////////////Получение имени символа в JavaScript///////////////
+/*
+ Имея переменную с символом, можно получить его имя в глобальном реестре. Это делается с помощью метода Symbol.keyFor. Давайте попробуем. Создадим символ с именем:
+
+let sym = Symbol.for('test');
+
+Получим его имя по его переменной:
+let key = Symbol.keyFor(sym);
+console.log(key); // выведет 'test'
 */
 
 /*
-Добавьте в массив несколько элементов с помощью метода push. Убедитесь, что функция будет находить сумму с учетом новых элементов. 
+ Даны два символа:
+let sym1 = Symbol.for('test1');
+let sym2 = Symbol.for('test2');
+
+Получите их имена. 
 */
+// let sym1 = Symbol.for('test1');
+// let sym2 = Symbol.for('test2');
+
+// let key1 = Symbol.keyFor(sym1);
+// console.log(key1);
+
+// let key2 = Symbol.keyFor(sym2);
+// console.log(key2);
+
+
+
+
+
+//////////////Хорошо известные символы в JavaScript////////////////////
+/*
+
+Хорошо известные символы в JavaScript
+
+Существуют специальные встроенные символы, которые используются JavaScript в служебных целях. Такие символы называются well-known symbols (хорошо известные символы).
+
+Примером такого символа служит Symbol.iterator, содержащий в себе функцию, перебирающую массивы. Проверим ее наличие в каком-нибудь массиве:
+let arr = [1, 2, 3];
+let func = arr[Symbol.iterator];
+console.log(func);
+
+*/
+
+///Сделайте коллекцию Map. Проверьте, есть ли у нее ключ Symbol.iterator.
+
+// let map = new Map();
+// let arr = [1];
+
+// map.set(arr, 2);
+
+// let mapFunc = map[Symbol.iterator];
+// console.log(mapFunc);// Выведет функцию итератора Map
+
+// console.log(Symbol.iterator in map); // true
+// console.log(typeof map[Symbol.iterator]); // "function"
+
+
+///Сделайте коллекцию Set. Проверьте, есть ли у нее ключ Symbol.iterator. 
+
+// let set = new Set([2, 3, 4]);
+
+// let mySetFanc = set[Symbol.iterator];
+// console.log(mySetFanc);
+
+// console.log(Symbol.iterator in set);
+// console.log(typeof set[Symbol.iterator]);
