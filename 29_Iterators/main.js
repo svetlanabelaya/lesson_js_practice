@@ -643,3 +643,321 @@ for (let elem of iter) {
 
 
 ////////////////Встроенный итератор entries в JavaScript/////////////////
+
+/*
+ Все итерируемые объекты имеют встроенный итератор entries, позволяющий перебирать пары ключ-значение. Давайте проверим его на массиве:
+let arr = ['a', 'b', 'c'];
+
+Получим итератор:
+let iter = arr.entries();
+
+Переберем его циклом:
+for (let entry of iter) {
+	console.log(entry); // [0, 'a'], [1, 'b'], [2, 'c']
+}
+
+Выполним деструктуризацию при переборе:
+for (let [key, value] of iter) {
+	console.log(key);   // 0, 1, 2
+	console.log(value); // 'a', 'b', 'c'
+}
+
+
+*/
+
+
+//Проверьте работу данного итератора на коллекции Map. 
+
+// let map = new Map();
+
+// let arr = [1, 5, 3, 2, 1];
+// map.set(arr, 'new');
+
+// let iter = map.entries();
+
+// for(let enytry of iter) {
+//    console.log(enytry);
+// }
+// for(let [key, value] of iter) {
+//    console.log(key);
+//    console.log(value);
+// }
+
+
+//Проверьте работу данного итератора на коллекции Set. 
+
+// let set =new Set();
+// set.add(1);
+// set.add(2);
+// set.add(3);
+
+// let iter = set.entries();
+// // for(let entry of iter) {
+// //    console.log(entry);
+// // }
+
+// for(let [key, value] of iter) {
+//    console.log(key);
+//    console.log(value);
+// }
+
+//Проверьте работу данного итератора на коллекции NodeList. 
+// let elems = document.querySelectorAll('p');
+
+// let iter = elems.entries();
+
+// // for(let entry of iter) {
+// //    console.log(entry);
+// // }
+
+// for(let [key, value] of iter) {
+//    // console.log(key);
+//    console.log(value);
+// }
+
+
+
+
+////////////////Три встроенных итератора в JavaScript//////////////////
+
+/*
+ На самом деле каждый итерируемый объект содержит не один итератор, а три: values, keys и entries. Для каждого типа объектов по умолчанию применяется свой итератор. Для массивов - это values, а, например, для коллекции Map, это entries.
+
+Обладая этими знаниями, мы теперь можем применить этот принцип к любой коллекции. Например, пусть у нас есть коллекция Map:
+let map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+map.set('c', 3);
+
+По умолчанию для этой коллекции применяется итератор entries:
+for (let elem of map) {
+	console.log(elem); // ['a', 1], ['b', 2], ['c', 3]
+}
+
+Но мы легко можем получить ключи нашей коллекции:
+for (let elem of map.keys()) {
+	console.log(elem); // 'a', 'b', 'c'
+}
+
+Также можем получить и значения:
+for (let elem of map.values()) {
+	console.log(elem); // 1, 2, 3
+}
+
+*/
+
+////Какой итератор по умолчанию действует в коллекции Set? 
+/*
+Map → entries() (возвращает пары [ключ, значение])
+Array → values() (возвращает элементы)
+Set → values() (возвращает элементы)
+*/
+
+
+
+
+
+//////////////Оператор spread и итераторы в JavaScript///////////////
+
+/*
+ Оператор spread разлагает любой объект, у которого есть итератор. При этом будет браться итератор по умолчанию. Давайте посмотрим на примере. Пусть у нас есть следующая коллекция Map:
+let map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+map.set('c', 3);
+
+По умолчанию при разложении получится двухмерный массив:
+let arr = [...map];
+console.log(arr); // [['a', 1], ['b', 2], ['c', 3]]
+
+Для получения массива ключей разложим соответствующий итератор:
+let arr = [...map.keys()];
+console.log(arr); // ['a', 'b', 'c']
+
+Аналогично поступим для получения массива значений:
+let arr = [...map.values()];
+console.log(arr); // [1, 2, 3]
+
+*/
+
+/*
+Разложите спредом следующий объект: 
+
+let obj = {
+	a: 1,
+	b: 2,
+	c: 3,
+	[Symbol.iterator]: function *(){
+		for (let key in this){
+			yield this[key];
+		}
+	}
+};
+*/
+
+// let obj = {
+// 	a: 1,
+// 	b: 2,
+// 	c: 3,
+// 	[Symbol.iterator]: function *(){
+// 		for (let key in this){
+// 			yield this[key];
+// 		}
+// 	}
+// };
+// let arr = [...obj];
+// console.log(arr);
+
+
+
+
+////////////////Встроенные итераторы строк в JavaScript/////////////////
+
+/*
+ Строки также имеют встроенный итератор. Давайте для примера переберем символы строки циклом:
+for (let elem of 'abc') {
+	console.log(elem); // 'a', 'b', 'c'
+}
+
+А теперь разложим строку через оператор spread:
+console.log([...'abc']); // ['a', 'b', 'c']
+*/
+
+/*
+ Дана строка с цифрами:
+let str = '12345';
+
+Перебирите циклом цифры этого числа и найдите их сумму. 
+*/
+
+// let str = '12345';
+// let arr = [...str];
+
+// let sum = 0;
+// for(let elem of arr) {
+//    sum += Number(elem);
+// }
+// console.log(sum);
+
+
+
+
+
+/////////////////Массив цифр числа в JavaScript//////////////////
+
+/*
+ Давайте получим массив цифр числа. Пусть дано следующее число:
+let num = 12345;
+
+Попытка разложить число через spread приведет к ошибке, так как числа не итерируемы:
+let num = 12345;
+let arr = [...num]; // ошибка
+console.log(arr);
+
+Для решения проблемы преобразуем число в строку:
+let num = 12345;
+let arr = [...String(num)];
+console.log(arr); // ['1', '2', '3', '4', '5']
+
+У нас, однако, получился массив строк, а не чисел. Исправим проблему с помощью хитрого приема, используя метод map:
+let num = 12345;
+let arr = [...String(num)].map(Number);
+console.log(arr); // [1, 2, 3, 4, 5]
+*/
+
+// //Дано число. Найдите сумму его цифр. 
+
+// let num = 225677;
+
+// let arr = [...String(num)].map(Number);
+
+// let sum = 0;
+// for(let elem of arr) {
+//    sum +=elem;
+// }
+// console.log(sum);
+
+
+
+///////////////Нумерация DOM элементов в JavaScript///////////////////
+
+/*
+ Понимания итераторов позволяет легко добавить номера DOM элементам. Пусть, к примеру, у нас есть абзацы:
+<p>text</p>
+<p>text</p>
+<p>text</p>
+
+Давайте получим коллекцию этих абзацев в переменную:
+let elems = document.querySelectorAll('p');
+
+Воспользуемся для перебора встроенным итератором entries:
+for (let entry of elems.entries()) {
+	console.log(entry);
+}
+
+Воспользуемся деструктуризацией, чтобы отделить номера от элементов:
+for (let [num, elem] of elems.entries()) {
+	console.log(num, elem);
+}
+
+Добавим каждому абзацу в конец его порядковый номер:
+for (let [num, elem] of elems.entries()) {
+	elem.textContent += num;
+}
+
+
+*/
+
+
+//Дана HTML таблица. Пронумеруйте каждую ячейку этой таблицы. 
+
+//Давайте получим коллекцию ячеек в переменную
+
+// let elems = document.querySelectorAll('td');
+
+// //Добавим каждой ячейке в конец его порядковый номер:
+// for(let [num, elem] of elems.entries()) {
+//    elem.textContent += num;
+// }
+
+
+
+///////////////Получение данных DOM элементов в JavaScript/////////////////
+
+/*
+ Деструктуризация позволяет нам получать текст и значения атрибутов DOM прямо в цикле. Давайте разберемся, как это работает. Пусть у нас есть следующие абзацы:
+<p id="id1">text1</p>
+<p id="id2">text2</p>
+<p id="id3">text3</p>
+
+Давайте получим коллекцию этих абзацев в переменную:
+let elems = document.querySelectorAll('p');
+
+Переберем элементы циклом, отделив номера и сами элементы:
+for (let [key, elem] of elems.entries()) {
+	console.log(key, elem);
+}
+
+А теперь давайте выполним деструктуризацию элементов, получив из них их id и тексты:
+for (let [key, {id, textContent}] of elems.entries()){
+	console.log(key, id, textContent);
+}
+
+*/
+
+/*
+ Дан следующий код:
+<input id="id1" value="111">
+<input id="id2" value="222">
+<input id="id3" value="333">
+
+Получите номера, id и value инпутов. 
+*/
+//получим коллекцию инпутов в переменную
+// let elems = document.querySelectorAll('input');
+
+// //Выполним деструктуризацию эелементов получив из них номера, id, и value
+
+// for(let [key, {id, value}] of elems.entries()) {
+//    console.log(key, id, value);
+// }
