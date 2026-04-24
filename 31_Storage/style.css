@@ -5,3 +5,87 @@ body {
 h1 {
    font-family: sans-serif;
 }
+/* #block {
+   display: flex;
+   gap: 15px;
+}
+#block_text {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+} */
+#panel {
+   width: 300px;
+   display: flex;
+   flex-direction: column;
+}
+#stickers_entry {
+   border: none;
+   border-bottom: 2px solid #e0d080;
+   background: transparent;
+   transition: border-color 0.3s;
+}
+#stickers_entry:focus {
+   border-bottom-color: #4CAF50;
+}
+#stickers_container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   gap: 20px;
+   padding: 20px;
+}
+#stickers_entry {
+   width: 100%;
+   max-width: 300px;
+   height: 150px;
+   background: #fff899; /* Тот же цвет, что у стикеров */
+   border: 2px dashed #e0d080; /* Пунктирная рамка намекает на ввод */
+   padding: 15px;
+   font-family: 'Comic Sans MS', cursive, sans-serif;
+   resize: none; /* Убираем некрасивый уголок для растягивания */
+   box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05); /* Внутренняя тень */
+   outline: none;
+}
+#save {
+   width: fit-content;
+   margin-top: 10px;
+   background: #4CAF50;
+   color: white;
+   border: none;
+   padding: 8px 20px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.sticker-block {
+   background-color: #fff899;
+   border: 1px solid #e0d080;
+   min-height: 200px;
+   padding: 15px;
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.1);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   transition: transform 0.2s;
+}
+.sticker-block:hover {
+   transform: scale(1.02);
+}
+
+.sticker-block p {
+   margin: 0;
+   font-family: 'Comic Sans MS', cursive, sans-serif;
+   outline: none;
+   word-wrap: break-word;
+}
+.stycker-block a {
+   align-self: flex-end;
+   color: #cc0000;
+   text-decoration: none;
+   font-size: 0.8em;
+   font-weight: bold;
+}
+
+.stycker-block a:hover {
+   text-decoration: underline;
+}

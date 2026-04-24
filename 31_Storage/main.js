@@ -577,10 +577,11 @@ let users = [
 */
 // let input = document.querySelector('input');
 // let button = document.querySelector('button');
+// let list = document.querySelector('#list');
 
 // button.addEventListener('click', function() {
 //    let json = localStorage.getItem('data');
-//    //получили массив
+//    //Преобразуем полученный json в масив js
 //    let data = JSON.parse(json);
    
 //    //Если в хранилище пусто
@@ -588,14 +589,267 @@ let users = [
 //       //Создадим пустой массив
 //       data = [];
 //    } 
-//    //создадим объект с делами взятыми из инпута
+//    //создадим шаблон объекта с делами взятыми из инпута
 //    let newDelo = {
 //       text: input.value,
 //       status: false
 //    }
-//    //запушим сщзданный объект с делом в массив
+//    //запушим созданный объект с делом в массив
 //    data.push(newDelo);
-//    //Запишем преобразованный массив в хранилище
+//    //Запишем преобразованный массив в хранилище преобразовав его в формат json
 //    localStorage.setItem('data', JSON.stringify(data));
-
+	 
+// 	 input.value = ''; 
+// 	 showList();
 // });
+
+// //Нам нужна функция, которая будет заглядывать в localStorage и рисовать на экране актуальный список дел.
+// function showList() {
+// 	// первым делом очистим список
+// 	// Если этого не сделать, при каждом добавлении дела старые дела будут дублироваться на экране.
+// 	list.innerHTML = '';
+// 	//Затем достанем массив из localStorage 
+// 	let listData = JSON.parse(localStorage.getItem('data'));
+// 	//проверим что данные в хранилище есть
+// 	if(listData) {
+// 		//переберем массив c делами(i это наши объекты созданные в обработчике)
+// 		for(let i = 0; i < listData.length; i++) {
+// 			//создадим ли для каждого дела
+// 			let li = document.createElement('li');
+      
+// 			//создадим спан для текста чтобы на него можно было нажать отдельно от кнопок
+// 			let span = document.createElement('span');
+// 			//запишем в спан наши объекты (i это объекты)
+// 			span.textContent = listData[i].text;
+
+// 			if(listData[i].status === true) {
+// 				span.style.textDecoration = 'line-through'; //Перечеркнуть
+// 				span.style.color = 'grey'; //Изменить цвет
+// 			}
+//       //добавим наши спаны внутри которых объекты в ли
+// 			li.appendChild(span);
+
+// 			span.addEventListener('click', function() {
+// 				//Меняем статус свщйств объектов true либо false
+// 				listData[i].status = !listData[i].status;
+// 				//сохрвням в локальном хранилище
+// 				localStorage.setItem('data', JSON.stringify(listData));
+// 				showList();
+// 			});
+
+// 			//создадим кнопку удаления
+// 			let remove = document.createElement('a');
+// 			remove.href = '#';
+// 			remove.textContent = 'удалить';
+// 			remove.style.color = 'blue';
+// 			remove.style.marginLeft = '15px'
+// 			li.appendChild(remove);
+
+// 			//добавим обработчик по клику для удаления
+// 			remove.addEventListener('click', function() {
+// 				listData.splice(i, 1); //По индексу i удаляем дело из массива
+// 				//запишем в локальное хранилище обновленный массив
+// 				localStorage.setItem('data', JSON.stringify(listData));
+// 				showList();
+// 			});
+// 			list.appendChild(li);
+// 		}
+// 	}
+// }
+
+
+/*
+Сделайте блокнот, в котором можно будет создавать записи. Пусть он представляет собой textarea для ввода текста. Слева от поля ввода должны размещаться ссылки на сохраненные записи. По нажатию на ссылку запись должна открываться в редакторе для просмотра и редактирования текста. 
+
+   <textarea id="blocknote"></textarea>
+   <button id="">сохранить заметку</button>
+*/
+// let blocknote = document.querySelector('#blocknote');
+// let button = document.querySelector('#btn');
+// let link = document.querySelector('#link');
+// //Метка для того чтобы заметка не дублировалась
+// let openIndex = null;
+
+// button.addEventListener('click', function() {
+//   let json = localStorage.getItem('arrData');
+// 	//преобразуем полученный json в массив
+// 	let arrData = JSON.parse(json);
+
+// 	//Если в ханилище пусто создадим пустой массив
+// 	if(arrData === null) {
+// 		arrData = [];
+// 	}
+// 	//Создадим шаблон объекта с записью из текстареа
+// 	let newTitle = {
+// 		text: blocknote.value,
+// 		status: false
+// 	}
+// 	//Запушим созданный объект в нашь массив
+// 	if (openIndex !== null) {
+//     // Если мы открыли старую запись — просто меняем её текст
+//     arrData[openIndex].text = blocknote.value;
+//     openIndex = null; // Сбрасываем, чтобы следующая была новой
+// } else {
+//     // Если ничего не открывали — создаем новую через твой push
+//     let newTitle = { text: blocknote.value, status: false };
+//     arrData.push(newTitle);
+// }
+
+// 	//Преобразуем массив в формат json
+// 	localStorage.setItem('arrData', JSON.stringify(arrData));
+// 	showLinks();
+// 	blocknote.value = '';
+// });
+
+// //Отрисовка ссылок
+// //Создадим функцию которая будет брать данные из массива в хранилище и создавать кликабельные ссылки
+// function showLinks() {
+//  link.innerHTML = ''; //очистим контейнер для ссылки чтобы она не дублировалась
+  
+//  //Достанем массив из хранилища
+//  let arrDataList = JSON.parse(localStorage.getItem('arrData'));
+//  //Проверим что данные в хранилище есть 
+//  if(arrDataList !== null) {
+// 	for(let i = 0; i < arrDataList.length; i++ ) {
+// 		let linkA = document.createElement('a');
+// 		linkA.style.display = 'block';
+// 		linkA.style.textDecoration = 'underline';
+// 		linkA.style.color = 'blue';
+// 		linkA.style.marginBottom = '10px';
+// 		linkA.textContent = 'Запись ' + (i + 1);
+		
+
+// 		linkA.addEventListener('click', function() {
+// 			blocknote.value = arrDataList[i].text;
+// 			openIndex = i;
+// 		});
+//     link.appendChild(linkA);
+// 	}
+//  }
+// }
+// 	showLinks();
+
+/*
+Сделайте стикеры для оставления коротких записей. Стикеры должны представлять собой блоки текста, расположенные на странице в виде плиточки. Пользователь может создавать новые стикеры через textarea, а также редактировать и удалять их. Каждый новый стикер должен добавляться в конец плиточки. 
+*/
+// let entry = document.querySelector('#stickers_entry');
+// let button = document.querySelector('#save');
+// let cont = document.querySelector('#stickers_container');
+
+// button.addEventListener('click', function() {
+//    //достанем массив из хранилища
+//    let json = localStorage.getItem('dataArrey');
+
+//    //преобразуем строку json в массив js
+//    let dataArrey = JSON.parse(json) || [];
+
+//    //создадим шаблон объекта в котором будет храниться запись из textarea
+//    let now = Date.now();
+//    let dataAreaObj = {
+//       id: now,
+//       text: entry.value
+//    }
+
+//    //запушим объект в массив
+//    dataArrey.push(dataAreaObj);
+
+//    //сохраним массив хранилище
+//    localStorage.setItem('dataArrey', JSON.stringify(dataArrey));
+
+//    entry.value = '';
+//    showStickers();
+// });
+
+// //функция отрисовки 
+// //Создадим функцию которая будет брать данные из массива в хранилище и создавать стикеры и внутри ссылки на редактирование и удаление
+// function showStickers() {
+//    //Очистим контейнер чтобы у нас стикеры не двоились
+//    cont.innerHTML = '';
+
+//    //Достаем массив из хранилища
+//    let dataArrey = JSON.parse(localStorage.getItem('dataArrey')) || [];
+
+//    //запустим цикл чтобы перебрать массив
+//    dataArrey.forEach(item => {
+//       //Сщздадим новую структуру стикера
+//       //сщздадим див это нашь новый стикер
+//       let newSticker = document.createElement('div');
+//       //Добавим класс этому диву
+//       newSticker.classList.add('sticker-block');
+
+//       //Создаем параграф
+//       let p = document.createElement('p');
+//       //из элемента массива параграфу присвоим текст тем самым передав из хранилища текст сохраненный ранее из текстареа
+//       p.textContent = item.text;
+//       //Сделаем нашь параграф редактируемым с помощью HTMLатрибута contenteditable 
+//       p.contentEditable = true;
+      
+//       //Чтобы знать какой текст менять в id
+//       p.dataset.id = item.id; 
+
+
+//       //Сщздадим ссылку на удаление внутри нашего стикера
+//       let removeLink = document.createElement('a');
+//       removeLink.href = '#';
+//       removeLink.textContent = 'удалить';
+//       //Привяжем наш ID из объета чтобы знать какой стикер удалять
+//       removeLink.dataset.id = item.id;
+
+//       removeLink.addEventListener('click', function(event) {
+//          event.preventDefault(); //чтобы страница не перезагружалась
+
+//          //фильтруем масиив (удалаяем текущий iD)
+//          // Мы используем id из переменной item, которая доступна внутри этого цикла
+//          let filterArray = dataArrey.filter(el => el.id !== item.id);
+
+//          //cохраним новый массив в хранилище
+//          localStorage.setItem('dataArrey', JSON.stringify(filterArray));
+
+//          // 3. Сразу вызываем отрисовку снова, чтобы стикер исчез
+//          showStickers();
+//       });
+
+//       //добавим в наш новый стикер Div, созданные параграф и ссылку
+//       newSticker.append(p, removeLink);
+//       //теперь добавим созданный стикер в сам контейнер 
+//       cont.append(newSticker);
+//    });
+// }
+// showStickers();
+// cont.addEventListener('focusout', function(event) {
+//    if (event.target.tagName === 'P') {
+//       let id = event.target.dataset.id;
+//       let newText = event.target.textContent;
+
+//       let dataArrey = JSON.parse(localStorage.getItem('dataArrey')) || [];
+      
+//       // Обновляем текст в массиве
+//       dataArrey = dataArrey.map(item => {
+//          if (item.id == id) {
+//             item.text = newText;
+//          }
+//          return item;
+//       });
+
+//       localStorage.setItem('dataArrey', JSON.stringify(dataArrey));
+//       console.log('Изменения сохранены в localStorage');
+//    }
+// });
+
+/*
+через делегирование
+cont.addEventListener('click', function(event) {
+   // Проверяем, что кликнули именно по ссылке "удалить"
+   if (event.target.textContent === 'удалить') {
+      event.preventDefault();
+      
+      let idToDelete = event.target.dataset.id; // Берем ID из атрибута
+      let dataArrey = JSON.parse(localStorage.getItem('dataArrey')) || [];
+      
+      let filtered = dataArrey.filter(item => item.id != idToDelete);
+      
+      localStorage.setItem('dataArrey', JSON.stringify(filtered));
+      showStickers();
+   }
+});
+*/
