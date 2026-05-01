@@ -588,34 +588,34 @@ try {
 Переделайте мой код так, чтобы функция getCost выбрасывала два типа исключений: если отсутствует цена и если отсутствует количество. Хорошо подумайте над названиями этих исключений. В блоке catch выведите разные сообщения об ошибке для исключений разных типов. 
 */
 
-let product = document.querySelector('#product');
-function getCost(elem) {
-	if (elem.dataset.price !== undefined && elem.dataset.amount !== undefined) {
-		return elem.dataset.price * elem.dataset.amount;
-	} else {
-      if(elem.dataset.price == undefined) {
-         throw {
-            name: 'ProductCostPriceError',
-            message: 'отсутствует цена продукта'
-         };
-      }
-      if(elem.dataset.amount == undefined) {
-         throw {
-            name: 'ProductCostCountError',
-            message: 'отсутствует количество продукта'
-         };
-      }
-	}
-}
+// let product = document.querySelector('#product');
+// function getCost(elem) {
+// 	if (elem.dataset.price !== undefined && elem.dataset.amount !== undefined) {
+// 		return elem.dataset.price * elem.dataset.amount;
+// 	} else {
+//       if(elem.dataset.price == undefined) {
+//          throw {
+//             name: 'ProductCostPriceError',
+//             message: 'отсутствует цена продукта'
+//          };
+//       }
+//       if(elem.dataset.amount == undefined) {
+//          throw {
+//             name: 'ProductCostCountError',
+//             message: 'отсутствует количество продукта'
+//          };
+//       }
+// 	}
+// }
 
 
-try {
-	let cost = getCost(product);
-	alert(cost);
-} catch (error) {
-      console.log(error.name);
-      console.log(error.message);
-}
+// try {
+// 	let cost = getCost(product);
+// 	alert(cost);
+// } catch (error) {
+//       console.log(error.name);
+//       console.log(error.message);
+// }
 
 /*
 ИИ
@@ -658,6 +658,26 @@ try {
 
 /////////////////Пример исключения с JSON в JavaScript///////////////
 
+// try {
+// 	let json = '{"product": "apple", "amount": 5}';
+// 	let product = JSON.parse(json);
+	
+// 	if (product.price !== undefined && product.amount !== undefined) {
+// 		alert(product.price * product.amount);
+// 	} else {
+// 		throw {
+// 			name: 'ProductCostError',
+// 			message: 'отсутствует цена или количество у продукта'
+// 		};
+// 	}
+// } catch (error) {
+// 	if (error.name == 'SyntaxError') {
+// 		alert('Некорректный JSON продукта');
+// 	} else if (error.name == 'ProductCostError') {
+// 		alert('У продукта отсутствует цена или количество');
+// 	}
+// }
+
 /*
  Пусть к вам приходит JSON вот такого вида:
 let json = `[
@@ -681,9 +701,78 @@ let json = `[
 Проверьте этот JSON на общую корректность при разборе, а после разбора проверьте, что в результате получается массив, а не что-то другое. Если в результате получается не массив - выбросите исключение. 
 */
 
+// try {
+// 	let json = `[
+// 		{
+// 			"name": "user1",
+// 			"age": 25,
+// 			"salary": 1000
+// 		},
+// 		{
+// 			"name": "user2",
+// 			"age": 26,
+// 			"salary": 2000
+// 		},
+// 		{
+// 			"name": "user3",
+// 			"age": 27,
+// 			"salary": 3000
+// 		}
+// 	]`;
+//  let arr = JSON.parse(json);
+// for(let elem of arr) {
+// 	if(elem.name !== undefined && elem.age !== undefined && elem.salary !== undefined) {
+// 		 alert(`${elem.name}, ${elem.age}, ${elem.salary}`);
+// 	} else {
+// 		 throw {
+// 			 name: 'salaryCostError',
+// 			 message: 'Отсутствует юзер или возраст или зарплата'
+// 		 }
+// 	}
+// }
+// } catch(error) {
+// 	if(error.name == 'SyntaxError') {
+// 		console.log('Некорректный JSON');
+// 	} else if(error.name == 'salaryCostError') {
+// 		console.log('Отсутствует одно из трех значений либо зарплата либо юзер либо возраст');
+// 	}
+// }
+
+
+
 
 
 /////////////////Проброс исключений в JavaScript//////////////////////
+
+/*
+ Рассмотрим блок catch задачи с JSON продукта:
+catch (error) {
+	if (error.name == 'SyntaxError') {
+		alert('Некорректный JSON продукта');
+	} else if (error.name == 'ProductCostError') {
+		alert('У продукта отсутствует цена или количество');
+	}
+}
+
+Как вы видите, мы ловим два запланированных нами исключения и как-то реагируем на это. Но что будет, если возникнет непредусмотренное нами исключение другого типа? В этом случае оно тоже попадет в блок catch, но никакой реакции на это не последует, так как исключение с другим типом просто не попадет ни в один из наших ифов.
+
+Когда я говорю, что не будет никакой реакции, то имею ввиду, что реально никакой: даже не будет вываливания ошибки в консоль. Наш код просто молча не будет работать.
+
+Поэтому существует следующее правило: ваш код должен ловить только те исключения, с которыми знает, как справится. Если исключение не известное, то его нужно пробросить дальше с помощью throw. В этом случае выше его поймает кто-то более осведомленный либо исключение вывалится ошибкой в консоль.
+
+Давайте поправим наш код:
+catch (error) {
+	if (error.name == 'SyntaxError') {
+		alert('Некорректный JSON продукта');
+	} else if (error.name == 'ProductCostError') {
+		alert('У продукта отсутствует цена или количество');
+	} else {
+		throw error; // пробрасываем исключение далее
+	}
+}
+
+
+*/
 /*
  Дан следующий код:
 try {
@@ -704,3 +793,22 @@ try {
 
 Что не так с этим кодом? Исправьте его на более удачный. 
 */
+
+// try {
+// 	let json = `["1", "2", "3"]`;
+
+// 	let arr = JSON.parse(json);
+  
+// 	for (let i = 0; i < arr.length; i++) {
+// 		localStorage.setItem(i, arr[i]);
+// 	}
+// } catch (error) {
+// 	if (error.name == 'QuotaExceededError') {
+// 		alert('закончилось место в хранилище');
+// 	} else if(error.name == 'SyntaxError') {
+// 		alert('некорректный JSON');
+// 	} else {
+// 		throw error;
+// 	}
+// }
+
